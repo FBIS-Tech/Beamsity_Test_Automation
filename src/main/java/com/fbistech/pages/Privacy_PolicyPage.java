@@ -65,6 +65,13 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 	
+	@FindBy(xpath = "//p[contains(text(),'Terms and Conditions')]")  //p[normalize-space()='Terms and Conditions'] 
+	@CacheLookup
+	WebElement term_ConditionsLink;
+	
+	
+	
+	
 	@FindBy(xpath = "//a[normalize-space()='Partner with us']")
 	@CacheLookup
 	WebElement partnerWithUsLink;
@@ -98,6 +105,11 @@ public class Privacy_PolicyPage extends TestBase {
 	
 
 //	  <----------------  PAGE NAEME LABEL  -------------------------->	
+	
+	
+	@FindBy(xpath = "//div[contains(text(),'Privacy Policy')]")
+	@CacheLookup
+	WebElement privacyPolicyPageNameLabel; 
 	
 	
 
@@ -156,10 +168,6 @@ public class Privacy_PolicyPage extends TestBase {
 	@CacheLookup
 	WebElement contactPhoneNumber;
 	
-	
-	@FindBy(xpath = "//div[contains(text(),'Privacy Policy')]")
-	@CacheLookup
-	WebElement privacyPolicyPageNameLabel;
 	
 	
 	
@@ -305,6 +313,26 @@ public class Privacy_PolicyPage extends TestBase {
 		beamsityLogo.click();
 		return new HomePage();
 	}
+	
+	
+	
+	public Privacy_PolicyPage validateClickOnTermsAndConditionsLink()
+	{
+		term_ConditionsLink.click();
+		return new Privacy_PolicyPage(); 
+	}
+	
+	
+	public String validateCorrectPrivacyPolicyPageNameLabel()
+	{
+		return privacyPolicyPageNameLabel.getText();
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

@@ -3,14 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.fbistech.testcases.LoginPageTest">
+      <class name="com.fbistech.testcases.Privacy_PolicyPageTest">
         <methods>
-          <include name="verifyUserCannotResetForgetPasswordWithEmailWithoutServerHostName"/>
-          <include name="verifyUserCannotLoginWith_ValidEmail_InvalidPassword"/>
-          <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="verifyUserCanClickSchools_OrganizationsPageLink"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.fbistech.testcases.LoginPageTest -->
+      </class> <!-- com.fbistech.testcases.Privacy_PolicyPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
