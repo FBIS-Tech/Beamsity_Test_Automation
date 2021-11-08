@@ -36,24 +36,24 @@ public class TutorPageTest extends TestBase {
 	}
 	
 	
-	@JiraPolicy(logTicketReady=true)
-	@Test(priority = 1) 
-	public void verifyUserCanClickTutorFormBtn() 
-	{
-		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
-	}
-
-	
-	@Test(priority = 2) 
-	public void verifyUserCanFillTutorForm() throws Exception
-	{
-		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
-		Thread.sleep(3000);
-		homePage = tutorPage.createNewTutor(prop.getProperty("firstName"), prop.getProperty("lastName"), 
-				prop.getProperty("emailAddress"), prop.getProperty("phoneNo"), prop.getProperty("uploadCourseFile"));
-		
-	}
-	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 1) 
+//	public void verifyUserCanClickTutorFormBtn() 
+//	{
+//		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
+//	}
+//
+//	
+//	@Test(priority = 2) 
+//	public void verifyUserCanFillTutorForm() throws Exception
+//	{
+//		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
+//		Thread.sleep(3000);
+//		homePage = tutorPage.createNewTutor(prop.getProperty("firstName"), prop.getProperty("lastName"), 
+//				prop.getProperty("emailAddress"), prop.getProperty("phoneNo"), prop.getProperty("uploadCourseFile"));
+//		
+//	}
+//	
 	
 	
 	

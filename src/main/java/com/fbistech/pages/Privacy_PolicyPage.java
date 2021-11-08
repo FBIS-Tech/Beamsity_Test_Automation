@@ -366,10 +366,10 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 	
-	public ContactUsPage validateClickOnContactUsLinkOnNavBar() throws Exception
+	public Privacy_PolicyPage validateClickOnContactUsLinkOnNavBar() throws Exception
 	{
 		contactUsLink1.click();
-		return new ContactUsPage();
+		return new Privacy_PolicyPage();
 	}
 	
 	
@@ -404,10 +404,10 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 	
-	public LoginPage validateClickOnLoginLink() throws Exception
+	public Privacy_PolicyPage validateClickOnLoginLink() throws Exception
 	{
 		logInLink.click();
-		return new LoginPage();
+		return new Privacy_PolicyPage();
 	}
 	  
 	

@@ -34,60 +34,60 @@ public class SponsorPageTest extends TestBase{
 	}
 
 	 
-	@JiraPolicy(logTicketReady=true)
-	@Test(priority=1)
-	public void verifySponsorPageTitleTest()
-	{
-		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
-		String sponsorsPageTitle = sponsors_OrganizationPage.validateSponsorPageTitle();
-		System.out.println(sponsorsPageTitle);
-		Assert.assertEquals(sponsorsPageTitle, "Beamsity");
-	}
-	
-	
-	@JiraPolicy(logTicketReady=true)
-	@Test(priority = 2)   
-	public void verifyUserCanClickSponsorFormBtn() throws Exception 
-	{
-		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
-		Thread.sleep(3000);
-		partnerWithUsPage = partnerWithUsPage.clickOnSponsorForm();
-		System.out.println("User was able to click on Sponsor Link: " + homePage);
-//		Assert.assertEquals(sponsorsPage, "page not found");
-	} 
-
-	
-	@JiraPolicy(logTicketReady=true)
-	@Test(priority = 3) 
-	public void verifyUserCanFillSponsorForm() throws Exception
-	{
-		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
-		 Thread.sleep(3000);
-		 partnerWithUsPage = partnerWithUsPage.clickOnSponsorForm();
-		 homePage = partnerWithUsPage.createNewSponsor(prop.getProperty("firstName"), prop.getProperty("lastName"),
-				 prop.getProperty("emailAddress"), prop.getProperty("phoneNo"));
-	}
-	
-	
-	@JiraPolicy(logTicketReady=true)
-	@Test(priority = 4) 
-	public void verifyCountryDropdownValue()
-	{	 
-		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
-		partnerWithUsPage = partnerWithUsPage.clickOnSponsorForm();
-		partnerWithUsPage = partnerWithUsPage.verifyCountryDropdownValue();
-	}
-
-	
-	@JiraPolicy(logTicketReady=true)
-	@Test(priority = 5) 
-	public void verifyCityDropdownValue()
-	{	 
-		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
-		partnerWithUsPage = partnerWithUsPage.clickOnSponsorForm();
-		partnerWithUsPage = partnerWithUsPage.verifyCityropdownValue();
-	}
-	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority=1)
+//	public void verifySponsorPageTitleTest()
+//	{
+//		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
+//		String sponsorsPageTitle = sponsors_OrganizationPage.validateSponsorPageTitle();
+//		System.out.println(sponsorsPageTitle);
+//		Assert.assertEquals(sponsorsPageTitle, "Beamsity");
+//	}
+//	
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 2)   
+//	public void verifyUserCanClickSponsorFormBtn() throws Exception 
+//	{
+//		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
+//		Thread.sleep(3000);
+//		partnerWithUsPage = partnerWithUsPage.clickOnSponsorForm();
+//		System.out.println("User was able to click on Sponsor Link: " + homePage);
+////		Assert.assertEquals(sponsorsPage, "page not found");
+//	} 
+//
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 3) 
+//	public void verifyUserCanFillSponsorForm() throws Exception
+//	{
+//		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
+//		 Thread.sleep(3000);
+//		 partnerWithUsPage = partnerWithUsPage.clickOnSponsorForm();
+//		 homePage = partnerWithUsPage.createNewSponsor(prop.getProperty("firstName"), prop.getProperty("lastName"),
+//				 prop.getProperty("emailAddress"), prop.getProperty("phoneNo"));
+//	}
+//	
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 4) 
+//	public void verifyCountryDropdownValue()
+//	{	 
+//		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
+//		partnerWithUsPage = partnerWithUsPage.clickOnSponsorForm();
+//		partnerWithUsPage = partnerWithUsPage.verifyCountryDropdownValue();
+//	}
+//
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 5) 
+//	public void verifyCityDropdownValue()
+//	{	 
+//		sponsors_OrganizationPage = homePage.validateClickOnSponsors_OrganizationLink();
+//		partnerWithUsPage = partnerWithUsPage.clickOnSponsorForm();
+//		partnerWithUsPage = partnerWithUsPage.verifyCityropdownValue();
+//	}
+//	
 	 
 	 
 	@AfterMethod

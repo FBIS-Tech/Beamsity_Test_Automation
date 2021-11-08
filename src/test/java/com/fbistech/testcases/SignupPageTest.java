@@ -35,41 +35,41 @@ public class SignupPageTest extends TestBase {
 	}
 
 	 
-	@JiraPolicy(logTicketReady=true)
-	@Test(priority=1)
-	public void verifyUserSignUpPageTitle() throws Exception
-	{
-//		loginPage = homePage.validateClickOnLogInLink();
-		Thread.sleep(2000);
-		signupPage = loginPage.validateCreateFreeAcctLink();
-		Thread.sleep(2000);
-		String title = signupPage.validateSignUpPageTitle();
-		System.out.println(title);
-		Assert.assertEquals(title, "React App");  // No title page displayed from page source
-	} 
-	
-	
-	
-	@JiraPolicy(logTicketReady=true)
-	@Test(priority=1) 
-	public void verifyUserCanClickSignUpLink()
-	{
-//		loginPage = homePage.validateClickOnLogInLink();
-		signupPage = loginPage.validateCreateFreeAcctLink();
-	}
-
-
-	@Test(priority=2)
-	public void verifyUserCanSignUpForm() throws Exception
-	{
-//		homePage.validateClickOnLogInLink();
-		Thread.sleep(2000);
-		signupPage = loginPage.validateCreateFreeAcctLink();
-		Thread.sleep(3000);
-		loginPage = signupPage.Signup(prop.getProperty("firstName"), prop.getProperty("lastName"), 
-		prop.getProperty("phoneNo"), prop.getProperty("emailAddress"), prop.getProperty("password"));
-	}	
-	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority=1)
+//	public void verifyUserSignUpPageTitle() throws Exception
+//	{
+////		loginPage = homePage.validateClickOnLogInLink();
+//		Thread.sleep(2000);
+//		signupPage = loginPage.validateCreateFreeAcctLink();
+//		Thread.sleep(2000);
+//		String title = signupPage.validateSignUpPageTitle();
+//		System.out.println(title);
+//		Assert.assertEquals(title, "React App");  // No title page displayed from page source
+//	} 
+//	
+//	
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority=1) 
+//	public void verifyUserCanClickSignUpLink()
+//	{
+////		loginPage = homePage.validateClickOnLogInLink();
+//		signupPage = loginPage.validateCreateFreeAcctLink();
+//	}
+//
+//
+//	@Test(priority=2)
+//	public void verifyUserCanSignUpForm() throws Exception
+//	{
+////		homePage.validateClickOnLogInLink();
+//		Thread.sleep(2000);
+//		signupPage = loginPage.validateCreateFreeAcctLink();
+//		Thread.sleep(3000);
+//		loginPage = signupPage.Signup(prop.getProperty("firstName"), prop.getProperty("lastName"), 
+//		prop.getProperty("phoneNo"), prop.getProperty("emailAddress"), prop.getProperty("password"));
+//	}	
+//	
 //	@Test(priority=3)
 //	public void verifyUserCanSuccessfullySignUP()
 //	{

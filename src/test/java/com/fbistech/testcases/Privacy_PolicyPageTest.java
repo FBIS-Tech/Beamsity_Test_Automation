@@ -112,58 +112,12 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	
 //	
 //	
-	@JiraPolicy(logTicketReady = true)
-	@Test(priority = 2)
-	public void verifyUserCanClickSchools_OrganizationsPageLink() throws Exception
-	{
-		loginPage = homePage.validateClickOnLoginLink();
-		Thread.sleep(3000);
-		
-//      <---  Create Array List to keep Tab information ---->
-        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-
-        // Navigate to New Tab
-        driver.switchTo().window(tabs2.get(1));
-         
-        Thread.sleep(3000);    		
-        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
-        
-        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs3.get(2));
-		
-		
-		
-		Thread.sleep(4000);
-		privacy_PolicyPage = privacy_PolicyPage.validateClickOnSchools_OrganizationsLink();
-	
-		String url = driver.getCurrentUrl();
-		System.out.println(url);
-		Assert.assertEquals(url, "https://beamsity.com/organization", "URL does not matched");
-		
-	//	<--- Validating Make an Impact context is display and running two layers of assertion ---->
-		
-		String pageNamelabel = privacy_PolicyPage.validateCorrectSchools_OrganizationsPageName();
-		Assert.assertEquals(pageNamelabel, "BeamSity for Organizations", "Text displayed does not matched");
-		System.out.println(pageNamelabel);
-
-		
-		boolean text = driver.getPageSource().contains("BeamSity for Organizations");
-		Assert.assertTrue(text);
-		System.out.println(text);
-	}
-	
-	
-	
-//	
-//	
-//	
-//	
 //	@JiraPolicy(logTicketReady = true)
 //	@Test(priority = 2)
-//	public void verifyUserCanClickOnTeachOnBeamsitykLink() throws Exception
+//	public void verifyUserCanClickSchools_OrganizationsPageLink() throws Exception
 //	{
 //		loginPage = homePage.validateClickOnLoginLink();
-//		Thread.sleep(2000);
+//		Thread.sleep(3000);
 //		
 ////      <---  Create Array List to keep Tab information ---->
 //        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
@@ -171,7 +125,7 @@ public class Privacy_PolicyPageTest extends TestBase {
 //        // Navigate to New Tab
 //        driver.switchTo().window(tabs2.get(1));
 //         
-//        Thread.sleep(2000);    		
+//        Thread.sleep(3000);    		
 //        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
 //        
 //        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
@@ -181,6 +135,51 @@ public class Privacy_PolicyPageTest extends TestBase {
 //		
 //		Thread.sleep(4000);
 //		privacy_PolicyPage = privacy_PolicyPage.validateClickOnSchools_OrganizationsLink();
+//	
+//		String url = driver.getCurrentUrl();
+//		System.out.println(url);
+//		Assert.assertEquals(url, "https://beamsity.com/organization", "URL does not matched");
+//		
+//	//	<--- Validating Make an Impact context is display and running two layers of assertion ---->
+//		
+//		String pageNamelabel = privacy_PolicyPage.validateCorrectSchools_OrganizationsPageName();
+//		Assert.assertEquals(pageNamelabel, "BeamSity for Organizations", "Text displayed does not matched");
+//		System.out.println(pageNamelabel);
+//
+//		
+//		boolean text = driver.getPageSource().contains("BeamSity for Organizations");
+//		Assert.assertTrue(text);
+//		System.out.println(text);
+//	}
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	@JiraPolicy(logTicketReady = true)
+//	@Test(priority = 2)
+//	public void verifyUserCanClickOnTeachOnBeamsitykLink() throws Exception
+//	{
+//		loginPage = homePage.validateClickOnLoginLink();
+//		Thread.sleep(3000);
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//
+//        // Navigate to New Tab
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(3000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
+//		
+//		Thread.sleep(4000);
+//		privacy_PolicyPage = privacy_PolicyPage.validateClickOnTechOnBeamsityLink();
 //	
 //		String url = driver.getCurrentUrl();
 //		System.out.println(url);
@@ -207,8 +206,23 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	@Test(priority = 3)
 //	public void verifyUserCanClickOnContactUsLinks() throws Exception
 //	{	
+//		loginPage = homePage.validateClickOnLoginLink();
+//		Thread.sleep(3000);
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//
+//        // Navigate to New Tab
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(3000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
 //		Thread.sleep(4000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
+//		privacy_PolicyPage = privacy_PolicyPage.validateClickOnContactUsLinkOnNavBar();
 //		
 ////	<-----	Assertion on contact us url ------>
 //		String url = driver.getCurrentUrl();
@@ -217,14 +231,14 @@ public class Privacy_PolicyPageTest extends TestBase {
 //		
 ////	<----- Validating Contact Us! text is display and running two layers of assertion ---->
 //		
-//		String pageNamelabel1 = contactUsPage.validateCorrectContactUsPageName();
-//		System.out.println(pageNamelabel1);
-//		Assert.assertEquals(pageNamelabel1, "Contact Us!", "Text displayed does not matched");
+//		String pageNameLabel1 = privacy_PolicyPage.validateCorrectContactUsPageName();
+//		System.out.println(pageNameLabel1);
+//		Assert.assertEquals(pageNameLabel1, "Contact Us!", "Text displayed does not matched");
 //		
 //		
-//		String pageNamelabel2 = contactUsPage.validateCorrectContactUsFooterName();
-//		System.out.println(pageNamelabel2);
-//		Assert.assertEquals(pageNamelabel2, "CONTACT US", "Text displayed does not matched");
+//		String pageNameLabel2 = privacy_PolicyPage.validateCorrectContactUsFooterName();
+//		System.out.println(pageNameLabel2);
+//		Assert.assertEquals(pageNameLabel2, "CONTACT US", "Text displayed does not matched");
 //		
 //		boolean text = driver.getPageSource().contains("Contact Us!");
 //		System.out.println(text);
@@ -237,45 +251,63 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	
 //	
 //	
-//	@JiraPolicy(logTicketReady = true)
-//	@Test(priority = 4)
-//	public void verifyUserCanClickOnLoginLink() throws Exception
-//	{
-//		Thread.sleep(4000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(4000);
-//		loginPage = contactUsPage.validateClickOnLoginLink();
-//		
-////      <---  Create Array List to keep Tab information ---->
-//		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+	@JiraPolicy(logTicketReady = true)
+	@Test(priority = 4)
+	public void verifyUserCanClickOnLoginLink() throws Exception
+	{
+		loginPage = homePage.validateClickOnLoginLink();
+		Thread.sleep(3000);
+		
+//      <---  Create Array List to keep Tab information ---->
+        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+
+        // Navigate to New Tab
+        driver.switchTo().window(tabs2.get(1));
+         
+        Thread.sleep(3000);    		
+        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+        
+        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs3.get(2));
+		
+		Thread.sleep(4000);
+		privacy_PolicyPage = privacy_PolicyPage.validateClickOnContactUsLinkOnNavBar();
+		
+		
+		Thread.sleep(4000);
+		privacy_PolicyPage = privacy_PolicyPage.validateClickOnLoginLink();
+		
+//		Thread.sleep(4000);		
+//      <---  Create Array List to keep Tab information ---->
+		ArrayList<String> tabs4 = new ArrayList<String>(driver.getWindowHandles());
 //
 //        // Navigate to New Tab
-//        driver.switchTo().window(tabs2.get(1));
-//        
-////      <--- Validating login URL and running an assertion ---->
-//        String url = driver.getCurrentUrl();
-//		System.out.println(url);
-//		Assert.assertEquals(url, "https://portal.beamsity.com/", "URL does not matched");
-//		
-//		
-////		<--- Validating login text is display and running two layers of assertion ---->
-//		
-//		
-//		String pageNamelabel = contactUsPage.validateCorrectLoginPageName();
-//		System.out.println(pageNamelabel);
-//		Assert.assertEquals(pageNamelabel, "Log In", "Text displayed does not matched");
-//		
-//		boolean text = driver.getPageSource().contains("Log In");
-//		System.out.println(text);
-//		Assert.assertTrue(text);
-//	}
-//	
-//	
-//	
-//	
-//	
-//	
-//	
+        driver.switchTo().window(tabs4.get(3));
+        
+//      <--- Validating login URL and running an assertion ---->
+        String url = driver.getCurrentUrl();
+		System.out.println(url);
+		Assert.assertEquals(url, "https://portal.beamsity.com/", "URL does not matched");
+		
+		
+//		<--- Validating login text is display and running two layers of assertion ---->
+		
+		
+		String pageNamelabel = contactUsPage.validateCorrectLoginPageName();
+		System.out.println(pageNamelabel);
+		Assert.assertEquals(pageNamelabel, "Log In", "Text displayed does not matched");
+		
+		boolean text = driver.getPageSource().contains("Log In");
+		System.out.println(text);
+		Assert.assertTrue(text);
+	}
+	
+	
+	
+	
+	
+	
+	
 //	@JiraPolicy(logTicketReady = true)
 //	@Test(priority = 5)
 //	public void verifyUserCanclickOnPartnerWithUsLink() throws Exception

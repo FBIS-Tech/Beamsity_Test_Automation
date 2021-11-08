@@ -6,8 +6,8 @@
       <class name="com.fbistech.testcases.Privacy_PolicyPageTest">
         <methods>
           <include name="setUp"/>
-          <include name="verifyUserCanClickSchools_OrganizationsPageLink"/>
           <include name="tearDown"/>
+          <include name="verifyUserCanClickOnLoginLink"/>
         </methods>
       </class> <!-- com.fbistech.testcases.Privacy_PolicyPageTest -->
     </classes>

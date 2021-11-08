@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="33976" started-at="2021-11-08T05:47:10 WAT" finished-at="2021-11-08T05:47:44 WAT">
+  <suite name="Default suite" duration-ms="29040" started-at="2021-11-08T08:43:32 WAT" finished-at="2021-11-08T08:44:01 WAT">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="33976" started-at="2021-11-08T05:47:10 WAT" finished-at="2021-11-08T05:47:44 WAT">
+    <test name="Default test" duration-ms="29040" started-at="2021-11-08T08:43:32 WAT" finished-at="2021-11-08T08:44:01 WAT">
       <class name="com.fbistech.testcases.Privacy_PolicyPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.fbistech.testcases.Privacy_PolicyPageTest@66d1af89]" name="setUp" is-config="true" duration-ms="7573" started-at="2021-11-08T05:47:10 WAT" finished-at="2021-11-08T05:47:18 WAT">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.fbistech.testcases.Privacy_PolicyPageTest@66d1af89]" name="setUp" is-config="true" duration-ms="7370" started-at="2021-11-08T08:43:32 WAT" finished-at="2021-11-08T08:43:39 WAT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="verifyUserCanClickSchools_OrganizationsPageLink()[pri:2, instance:com.fbistech.testcases.Privacy_PolicyPageTest@66d1af89]" name="verifyUserCanClickSchools_OrganizationsPageLink" duration-ms="20178" started-at="2021-11-08T05:47:18 WAT" finished-at="2021-11-08T05:47:38 WAT">
+        <test-method status="PASS" signature="verifyUserCanClickOnLoginLink()[pri:4, instance:com.fbistech.testcases.Privacy_PolicyPageTest@66d1af89]" name="verifyUserCanClickOnLoginLink" duration-ms="15505" started-at="2021-11-08T08:43:39 WAT" finished-at="2021-11-08T08:43:55 WAT">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyUserCanClickSchools_OrganizationsPageLink -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.fbistech.testcases.Privacy_PolicyPageTest@66d1af89]" name="tearDown" is-config="true" duration-ms="6179" started-at="2021-11-08T05:47:38 WAT" finished-at="2021-11-08T05:47:44 WAT">
+        </test-method> <!-- verifyUserCanClickOnLoginLink -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.fbistech.testcases.Privacy_PolicyPageTest@66d1af89]" name="tearDown" is-config="true" duration-ms="6121" started-at="2021-11-08T08:43:55 WAT" finished-at="2021-11-08T08:44:01 WAT">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
