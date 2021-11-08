@@ -68,12 +68,56 @@ public class Privacy_PolicyPageTest extends TestBase {
 	
 	
 	
-	@JiraPolicy(logTicketReady=true)
-	@Test(priority = 1) 
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 1) 
+//	public void verifyUserCanNavigateToTermsAndConditionsPage() throws Exception
+//	{
+//		loginPage = homePage.validateClickOnLoginLink();
+//		Thread.sleep(2000);
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//
+//        // Navigate to New Tab
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(2000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//        
+//        
+//       
+//		
+//		String url = driver.getCurrentUrl();
+//		System.out.println(url);
+//		Assert.assertEquals(url, "https://beamsity.com/privacy_policy/", "URL does not matched");
+//		
+//		
+////		<--- Validating BeamSity for Organizations context is display and running two layers of assertion ---->
+//		
+//		String pageNamelabel = privacy_PolicyPage.validateCorrectPrivacyPolicyPageNameLabel();
+//		Assert.assertEquals(pageNamelabel, "Privacy Policy", "Text displayed does not matched");
+//		System.out.println(pageNamelabel);
+//
+//		boolean text = driver.getPageSource().contains("Privacy Policy");
+//		Assert.assertTrue(text);
+//		System.out.println(text);
+//	}
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+	@JiraPolicy(logTicketReady = true)
+	@Test(priority = 2)
 	public void verifyUserCanClickSchools_OrganizationsPageLink() throws Exception
 	{
 		loginPage = homePage.validateClickOnLoginLink();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		
 //      <---  Create Array List to keep Tab information ---->
         ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
@@ -81,45 +125,62 @@ public class Privacy_PolicyPageTest extends TestBase {
         // Navigate to New Tab
         driver.switchTo().window(tabs2.get(1));
          
-        Thread.sleep(2000);    		
+        Thread.sleep(3000);    		
         privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
         
         ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs3.get(2));
-        
-        
-       
 		
+		
+		
+		Thread.sleep(4000);
+		privacy_PolicyPage = privacy_PolicyPage.validateClickOnSchools_OrganizationsLink();
+	
 		String url = driver.getCurrentUrl();
 		System.out.println(url);
-		Assert.assertEquals(url, "https://beamsity.com/privacy_policy/", "URL does not matched");
+		Assert.assertEquals(url, "https://beamsity.com/organization", "URL does not matched");
 		
+	//	<--- Validating Make an Impact context is display and running two layers of assertion ---->
 		
-//		<--- Validating BeamSity for Organizations context is display and running two layers of assertion ---->
-		
-		String pageNamelabel = privacy_PolicyPage.validateCorrectPrivacyPolicyPageNameLabel();
-		Assert.assertEquals(pageNamelabel, "Privacy Policy", "Text displayed does not matched");
+		String pageNamelabel = privacy_PolicyPage.validateCorrectSchools_OrganizationsPageName();
+		Assert.assertEquals(pageNamelabel, "BeamSity for Organizations", "Text displayed does not matched");
 		System.out.println(pageNamelabel);
 
-		boolean text = driver.getPageSource().contains("Privacy Policy");
+		
+		boolean text = driver.getPageSource().contains("BeamSity for Organizations");
 		Assert.assertTrue(text);
 		System.out.println(text);
 	}
 	
 	
 	
-	
-	
-	
-	
+//	
+//	
+//	
+//	
 //	@JiraPolicy(logTicketReady = true)
 //	@Test(priority = 2)
 //	public void verifyUserCanClickOnTeachOnBeamsitykLink() throws Exception
 //	{
+//		loginPage = homePage.validateClickOnLoginLink();
+//		Thread.sleep(2000);
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//
+//        // Navigate to New Tab
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(2000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
+//		
+//		
 //		Thread.sleep(4000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(4000);
-//		techOnBeamsityPage = contactUsPage.validateClickOnTechOnBeamsityLink();
+//		privacy_PolicyPage = privacy_PolicyPage.validateClickOnSchools_OrganizationsLink();
 //	
 //		String url = driver.getCurrentUrl();
 //		System.out.println(url);

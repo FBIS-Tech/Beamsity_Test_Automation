@@ -336,10 +336,10 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 	
-	public Schools_OrganizationsPage validateClickOnSchools_OrganizationsLink()
+	public Privacy_PolicyPage validateClickOnSchools_OrganizationsLink()
 	{
 		schools_OrganizationsLink.click();
-		return new Schools_OrganizationsPage(); 
+		return new Privacy_PolicyPage(); 
 	}
 	
 	
@@ -350,10 +350,10 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 	
-	public TechOnBeamsityPage validateClickOnTechOnBeamsityLink()
+	public Privacy_PolicyPage validateClickOnTechOnBeamsityLink()
 	{
 		techOnBeamsityLink.click();
-		return new TechOnBeamsityPage();
+		return new Privacy_PolicyPage();
 	}
 	
 	
