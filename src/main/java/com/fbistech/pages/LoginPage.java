@@ -141,6 +141,27 @@ public class LoginPage extends TestBase {
 	
 	
 	
+	
+	
+	@FindBy(xpath = "//li[@class='chakra-toast']//div[@class='chakra-alert__title css-tidvy5'][normalize-space()='Success.']") 
+	@CacheLookup
+	WebElement successResetPasswordLinkSentPrompt;
+	
+	
+	
+	@FindBy(xpath = "//li[@class='chakra-toast']//div[@class='chakra-alert__desc css-zycdy9']"
+			+ "[contains(text(),'Reset password link has been sent to your register')]") 
+	@CacheLookup
+	WebElement resetPasswordLinkSentSuccessPrompt;
+	
+	
+	@FindBy(xpath = "//li[@class='chakra-toast']//*[@class='chakra-icon css-onkibi']")  
+	@CacheLookup
+	WebElement cancel_ResetPasswordLinkSentSuccessPrompt;
+	
+	
+	
+	
 	@FindBy(xpath = "//li[@class='chakra-toast']//div[@class='chakra-alert__desc css-zycdy9']"
 			+ "[normalize-space()='The selected email is invalid.']") 
 	@CacheLookup
@@ -294,7 +315,6 @@ public class LoginPage extends TestBase {
 	
 	
 	
-	
 		
 	public String validateEmailMustBeAValidEmailAddressErrorPrompt()
 	{
@@ -313,6 +333,42 @@ public class LoginPage extends TestBase {
 	{
 		cancel_EmailMustBeAValidEmailAddressErrorPrompt.click();
 		return true;
+	}
+	
+	
+	
+	
+//	<----  FORGET PASSWORD ACTIONS  ----> 
+		
+	
+	public LoginPage validateUserForgotPasswordWithValidEmail(String userEmail) throws Exception
+	{
+		forgotPassowrdInputField.sendKeys(userEmail);
+		Thread.sleep(2000);
+		forgetPasswordEmailContinueButton.click();
+		Thread.sleep(2000); 
+		return new LoginPage(); 
+	}
+	
+	
+	
+	public String validateSuccessResetPasswordLinkSentPrompt()
+	{
+		return successResetPasswordLinkSentPrompt.getText();
+	}
+	
+
+	
+	public String validateResetPasswordLinkSentSuccessPrompt()
+	{
+		return resetPasswordLinkSentSuccessPrompt.getText();
+	}
+	
+	
+	public LoginPage validateClickOnCancel_ResetPasswordLinkSentSuccessPrompt()
+	{
+		cancel_ResetPasswordLinkSentSuccessPrompt.click();
+		return new LoginPage();
 	}
 	
 	
@@ -361,18 +417,7 @@ public class LoginPage extends TestBase {
 	
 	
 	
-//	<----  FORGET PASSWORD ACTIONS  ----> 
-		
-	
-	public LoginPage validateUserForgotPasswordWithValidEmail(String userEmail) throws Exception
-	{
-		forgotPassowrdInputField.sendKeys(userEmail);
-		Thread.sleep(2000);
-		forgetPasswordEmailContinueButton.click();
-		Thread.sleep(2000); 
-		return new LoginPage(); 
-	}
-	
+
 	
 	
 	public LoginPage validateClickOnForgotPasswordLink()

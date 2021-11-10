@@ -421,10 +421,10 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 	
-	public PartnerWithUsPage validatePartnerWithUsLink()
+	public Privacy_PolicyPage validatePartnerWithUsLink()
 	{
 		partnerWithUsLink.click();
-		return new PartnerWithUsPage();
+		return new Privacy_PolicyPage();
 	}
 	
 
@@ -463,14 +463,14 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 	
-	public AboutUsPage validateClickOnAboutUsLink() throws Exception
+	public Privacy_PolicyPage validateClickOnAboutUsLink() throws Exception
 	{
 		Thread.sleep(3000);
 		JavascriptExecutor scroll = (JavascriptExecutor) driver;
 		scroll.executeScript("arguments[0].scrollIntoView(true)", aboutUsLink);
 		Thread.sleep(4000);
 		aboutUsLink.click();
-		return new AboutUsPage();
+		return new Privacy_PolicyPage();
 	}
 	
 	
@@ -490,7 +490,7 @@ public class Privacy_PolicyPage extends TestBase {
 	public Privacy_PolicyPage validateClickOnPrivacyPolicyLink() throws Exception
 	{
 		JavascriptExecutor scroll = (JavascriptExecutor) driver;
-		scroll.executeScript("window.scrollBy(0, 4000);");
+		scroll.executeScript("window.scrollBy(0, 4590)");
 		Thread.sleep(4000);
 	    privacyPolicyLink.click();
 		return new Privacy_PolicyPage();
@@ -513,21 +513,19 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 
-	public ContactUsPage validateClickOnContactUsOfficeAddress() throws Exception
+	public Privacy_PolicyPage validateClickOnContactUsOfficeAddress() throws Exception
 	{
 		JavascriptExecutor scroll = (JavascriptExecutor) driver;
-		scroll.executeScript("window.scrollBy(0, 1100);");
+		scroll.executeScript("window.scrollBy(0, 4590)");
 		Thread.sleep(5000);
-		getDirection.click();
-		Thread.sleep(5000);
-
+		contactAddress.click();
 		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tabs2.get(0));
-		Thread.sleep(5000);
+		driver.switchTo().window(tabs2.get(3));
+//		Thread.sleep(5000);
 
 		
-		contactAddress.click();
-		return new ContactUsPage();
+		
+		return new Privacy_PolicyPage();
 	}
 	
 	
@@ -564,15 +562,15 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 
-	public ContactUsPage validateSignUpToMailingList(String userEmail) throws Exception
+	public Privacy_PolicyPage validateSignUpToMailingList(String userEmail) throws Exception
 	{
 		JavascriptExecutor scroll = (JavascriptExecutor) driver;
-		scroll.executeScript("window.scrollBy(0, 4000);");
+		scroll.executeScript("window.scrollBy(0, 4590);");
 		Thread.sleep(3000);
 		mailingListEmailField.sendKeys(userEmail);
 		Thread.sleep(4000);
 //		signUpMailingListButton.click();
-		return new ContactUsPage();
+		return new Privacy_PolicyPage();
 	}
 	
 	
@@ -587,16 +585,16 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 	
-	public ContactUsPage validateSignUpToMailingListWithInvalidEmailFormat(String emailWithOutDotCom) throws Exception
+	public Privacy_PolicyPage validateSignUpToMailingListWithInvalidEmailFormat(String emailWithoutDomeNameExtension) throws Exception
 	{
 		Thread.sleep(3000);
 		JavascriptExecutor scroll = (JavascriptExecutor) driver;
 		scroll.executeScript("arguments[0].scrollIntoView(true)", signUpMailingListButton);
 		Thread.sleep(3000);
-		mailingListEmailField.sendKeys(emailWithOutDotCom);
+		mailingListEmailField.sendKeys(emailWithoutDomeNameExtension);
 		Thread.sleep(4000);
 //		signUpMailingListButton.click();
-		return new ContactUsPage();
+		return new Privacy_PolicyPage();
 	}
 	
 	
@@ -611,24 +609,24 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 	
-	public ContactUsPage validateClickOnGooglePlayLlink() throws InterruptedException
+	public Privacy_PolicyPage validateClickOnGooglePlayLlink() throws InterruptedException
 	{
 		JavascriptExecutor scroll = (JavascriptExecutor) driver;
-		scroll.executeScript("window.scrollBy(0, 3300);");
-		Thread.sleep(4000);
-		googlePlayButton1.click();	
+//		scroll.executeScript("window.scrollBy(0, 4590);");
+//		Thread.sleep(4000);
+//		googlePlayButton1.click();	
 		
 //		Switch back to the initial tab 
-		Thread.sleep(6000);
-		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tabs2.get(0));
+//		Thread.sleep(6000);
+//		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//		driver.switchTo().window(tabs2.get(0));
 		
 //		Scroll down and click Google play
 		scroll.executeScript("arguments[0].scrollIntoView(true)", googlePlayButton2);
 		Thread.sleep(4000);
 		googlePlayButton2.click();	
 		
-		return new ContactUsPage();
+		return new Privacy_PolicyPage();
 	}
 	
 	
@@ -644,7 +642,7 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 	
-	public ContactUsPage validateUserInstallBeamsityApp() throws Exception
+	public Privacy_PolicyPage validateUserInstallBeamsityApp() throws Exception
 	{
 		Thread.sleep(4000);
 		JavascriptExecutor scroll = (JavascriptExecutor) driver;
@@ -661,7 +659,7 @@ public class Privacy_PolicyPage extends TestBase {
 		
 //		Thread.sleep(4000);
 //		selectInstallationPhone.click();
-		return new ContactUsPage();
+		return new Privacy_PolicyPage();
 	}
 	
 	

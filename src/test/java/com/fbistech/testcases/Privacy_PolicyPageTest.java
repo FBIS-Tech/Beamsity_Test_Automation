@@ -187,7 +187,7 @@ public class Privacy_PolicyPageTest extends TestBase {
 //		
 //	//	<--- Validating Make an Impact context is display and running two layers of assertion ---->
 //		
-//		String pageNamelabel = contactUsPage.validateCorrectTeachOnBeamsityPageName();
+//		String pageNamelabel = privacy_PolicyPage.validateCorrectTeachOnBeamsityPageName();
 //		System.out.println(pageNamelabel);
 //		Assert.assertEquals(pageNamelabel, "Make an Impact", "Text displayed does not matched");
 //		
@@ -204,7 +204,7 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	
 //	@JiraPolicy(logTicketReady=true)
 //	@Test(priority = 3)
-//	public void verifyUserCanClickOnContactUsLinks() throws Exception
+//	public void verifyUserCanClickOnContactUsLink() throws Exception
 //	{	
 //		loginPage = homePage.validateClickOnLoginLink();
 //		Thread.sleep(3000);
@@ -251,71 +251,80 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	
 //	
 //	
-	@JiraPolicy(logTicketReady = true)
-	@Test(priority = 4)
-	public void verifyUserCanClickOnLoginLink() throws Exception
-	{
-		loginPage = homePage.validateClickOnLoginLink();
-		Thread.sleep(3000);
-		
-//      <---  Create Array List to keep Tab information ---->
-        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-
-        // Navigate to New Tab
-        driver.switchTo().window(tabs2.get(1));
-         
-        Thread.sleep(3000);    		
-        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
-        
-        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs3.get(2));
-		
-		Thread.sleep(4000);
-		privacy_PolicyPage = privacy_PolicyPage.validateClickOnContactUsLinkOnNavBar();
-		
-		
-		Thread.sleep(4000);
-		privacy_PolicyPage = privacy_PolicyPage.validateClickOnLoginLink();
-		
+//	@JiraPolicy(logTicketReady = true)
+//	@Test(priority = 4)
+//	public void verifyUserCanClickOnLoginLink() throws Exception
+//	{
+//		loginPage = homePage.validateClickOnLoginLink();
+//		Thread.sleep(3000);
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(4000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
+//		
+//		Thread.sleep(4000);
+//		privacy_PolicyPage = privacy_PolicyPage.validateClickOnLoginLink();
+//		
 //		Thread.sleep(4000);		
-//      <---  Create Array List to keep Tab information ---->
-		ArrayList<String> tabs4 = new ArrayList<String>(driver.getWindowHandles());
-//
-//        // Navigate to New Tab
-        driver.switchTo().window(tabs4.get(3));
-        
-//      <--- Validating login URL and running an assertion ---->
-        String url = driver.getCurrentUrl();
-		System.out.println(url);
-		Assert.assertEquals(url, "https://portal.beamsity.com/", "URL does not matched");
-		
-		
-//		<--- Validating login text is display and running two layers of assertion ---->
-		
-		
-		String pageNamelabel = contactUsPage.validateCorrectLoginPageName();
-		System.out.println(pageNamelabel);
-		Assert.assertEquals(pageNamelabel, "Log In", "Text displayed does not matched");
-		
-		boolean text = driver.getPageSource().contains("Log In");
-		System.out.println(text);
-		Assert.assertTrue(text);
-	}
-	
-	
-	
-	
-	
-	
-	
+////      <---  Create Array List to keep Tab information ---->
+//		ArrayList<String> tabs4 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs4.get(3));
+//        
+////      <--- Validating login URL and running an assertion ---->
+//        String url = driver.getCurrentUrl();
+//		System.out.println(url);
+//		Assert.assertEquals(url, "https://portal.beamsity.com/", "URL does not matched");
+//		
+//		
+////		<--- Validating login text is display and running two layers of assertion ---->
+//		
+//		
+//		String pageNamelabel = privacy_PolicyPage.validateCorrectLoginPageName();
+//		System.out.println(pageNamelabel);
+//		Assert.assertEquals(pageNamelabel, "Log In", "Text displayed does not matched");
+//		
+//		boolean text = driver.getPageSource().contains("Log In");
+//		System.out.println(text);
+//		Assert.assertTrue(text);
+//	}
+//	
+//	
+//	
+//	
+//	
+//	
+//	
 //	@JiraPolicy(logTicketReady = true)
 //	@Test(priority = 5)
-//	public void verifyUserCanclickOnPartnerWithUsLink() throws Exception
+//	public void verifyUserCanClickOnPartnerWithUsLink() throws Exception
 //	{
-//		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
+//		Thread.sleep(2000);
+//		loginPage = homePage.validateClickOnLoginLink();
+//		Thread.sleep(3000);
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(4000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
+//		
 //		Thread.sleep(4000);
-//		partnerWithUsPage = contactUsPage.validatePartnerWithUsLink();
+//		privacy_PolicyPage = privacy_PolicyPage.validateClickOnPartnerWithUsLink();
+//				
+//		
+//
 //	
 //		String url = driver.getCurrentUrl();
 //		System.out.println(url);
@@ -323,37 +332,7 @@ public class Privacy_PolicyPageTest extends TestBase {
 //		
 ////		<--- Validating partner with us text is display and running 2 layers of assertion ---->
 //		
-//		String pageNamelabel = contactUsPage.validateCorrectPartnerWithUsPageName();
-//		System.out.println(pageNamelabel);
-//		Assert.assertEquals(pageNamelabel, "Partner with us today", "Text displayed does not matched");
-//		
-//		boolean text = driver.getPageSource().contains("Partner with us today");
-//		System.out.println(text);
-//		Assert.assertTrue(text);
-//	}
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	@JiraPolicy(logTicketReady = true)
-//	@Test(priority = 6)
-//	public void verifyOfficeAddressIsDisplayed() throws Exception
-//	{
-//		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(4000);
-//		
-//	
-//		String url = driver.getCurrentUrl();
-//		System.out.println(url);
-//		Assert.assertEquals(url, "https://beamsity.com/sponsor");
-//		
-////		<--- Validating partner with us text is display and running 2 layers of assertion ---->
-//		
-//		String pageNamelabel = contactUsPage.validateCorrectPartnerWithUsPageName();
+//		String pageNamelabel = privacy_PolicyPage.validateCorrectPartnerWithUsPageName();
 //		System.out.println(pageNamelabel);
 //		Assert.assertEquals(pageNamelabel, "Partner with us today", "Text displayed does not matched");
 //		
@@ -365,30 +344,6 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	
 //	
 //
-//
-////	<----------------- ContactUsPage body ---------------->
-//	
-//	
-//	@JiraPolicy(logTicketReady = true)
-//	@Test(priority = 7)
-//	public void verifyUserIsOfficePhoneNumberisDisplayed() throws Exception
-//	{
-//		Thread.sleep(4000); 
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(3000); 
-//		
-////		<--- Validating office phone number is displayed and and running a layer of assertion ----> 
-//		String phoneNumberLabel = contactUsPage.validateCorrectContactOfficePhoneNumber();
-//		Assert.assertEquals(phoneNumberLabel, "+234(0)8032036876");
-//		System.out.println(phoneNumberLabel);
-//
-//		
-////		<--- Validating office address text is display on the footer and running a layer of assertion ---->
-//		boolean text = driver.getPageSource().contains("+234(0)8032036876");
-//		Assert.assertTrue(text);
-//		System.out.println(text);
-//	}
-//	
 //	
 //	
 //	
@@ -399,25 +354,38 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	@Test(priority = 8)
 //	public void verifyUserCanClickOnAboutUsLink() throws Exception
 //	{
-//		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
+//		Thread.sleep(2000);
+//		loginPage = homePage.validateClickOnLoginLink();
 //		Thread.sleep(3000);
-//		aboutUsPage = contactUsPage.validateClickOnAboutUsLink();
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(4000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
+//	
+//		Thread.sleep(3000);
+//		privacy_PolicyPage = privacy_PolicyPage.validateClickOnAboutUsLink();
 //		
 //		
 //		String url = driver.getCurrentUrl();
-//		System.out.println(url);
 //		Assert.assertEquals(url, "https://beamsity.com/about_us", "URL does not matched");
-//		
+//		System.out.println(url);
+//	
 ////		<--- Validating Make an Impact context is display and running two layers of assertion ---->	
 //		
-//		String pageNamelabel = contactUsPage.validateCorrectAboutUsFooterName();
-//		System.out.println(pageNamelabel);
-//		Assert.assertEquals(pageNamelabel, "About Us", "Text displayed does not matched");
+//		String footerNameLabel = privacy_PolicyPage.validateCorrectAboutUsFooterName();
+//		System.out.println(footerNameLabel);
+//		Assert.assertEquals(footerNameLabel, "About Us", "Text displayed does not matched");
 //		
 //		boolean text = driver.getPageSource().contains("About Us");
+//		Assert.assertTrue(text);
 //		System.out.println(text);
-//		Assert.assertTrue(text);	
 //	}
 //	
 //
@@ -431,10 +399,24 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	@Test(priority = 9)
 //	public void verifyUserCanClickOnPrivacyPolicyLink() throws Exception
 //	{
-//		Thread.sleep(4000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
+//		Thread.sleep(2000);
+//		loginPage = homePage.validateClickOnLoginLink();
 //		Thread.sleep(3000);
-//		privacy_PolicyPage = contactUsPage.validateClickOnPrivacyPolicyLink();
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(4000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
+//		
+//		
+//		Thread.sleep(3000);
+//		privacy_PolicyPage = privacy_PolicyPage.validateClickOnPrivacyPolicyLink();
 //		
 //		
 //		String url = driver.getCurrentUrl();
@@ -443,13 +425,14 @@ public class Privacy_PolicyPageTest extends TestBase {
 //		
 ////		<--- Validating Make an Impact context is display and running two layers of assertion ---->
 //		
-//		String pageNamelabel = contactUsPage.validateCorrectPrivacyPolicyFooterName();
-//		System.out.println(pageNamelabel);
-//		Assert.assertEquals(pageNamelabel, "Privacy Policy", "Text displayed does not matched");
+//		String footerNameLabel = privacy_PolicyPage.validateCorrectPrivacyPolicyFooterName();
+//		Assert.assertEquals(footerNameLabel, "Privacy Policy", "Text displayed does not matched");
+//		System.out.println(footerNameLabel);
+//
 //		
 //		boolean text = driver.getPageSource().contains("Privacy Policy");
-//		System.out.println(text);
 //		Assert.assertTrue(text);
+//		System.out.println(text);
 //	}
 //	
 //
@@ -463,29 +446,36 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	@Test(priority = 10)
 //	public void verifyUserIsRedirectedToGoogleMapNavigation_ClickOnContactAddressLink() throws Exception
 //	{
+//		Thread.sleep(2000);
+//		loginPage = homePage.validateClickOnLoginLink();
+//		Thread.sleep(3000);
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(4000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
+//		
+//	
 //		Thread.sleep(4000); 
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(4000); 
-//		contactUsPage = contactUsPage.validateClickOnContactUsOfficeAddress();
+//		privacy_PolicyPage = privacy_PolicyPage.validateClickOnContactUsOfficeAddress();
+//		
+//		
+////		<--- Validating office address text is display on google map and running a layer of assertion ---->
+//		String footerNamelabel = privacy_PolicyPage.validateCorrectGoogleMapContactUsOfficeAddress();
+//		System.out.println(footerNamelabel);
+//		Assert.assertEquals(footerNamelabel, "50 Awolowo Rd, Ikoyi 106104, Lagos", " The address displayed does not matched");
 //		
 //		
 ////		<--- Validating office address text is display on the footer and running a layer of assertion ---->
-//		boolean text = driver.getPageSource().contains("50, Awolowo Road Ikoyi lagos, Nigeria.");
+//		boolean text = driver.getPageSource().contains("50 Awolowo Rd, Ikoyi 106104, Lagos");
 //		Assert.assertTrue(text);
 //		System.out.println(text);
-//
-//		
-////		<---  Create Array List to keep Tab information ---->
-//		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-//
-////		Navigate to google map tab
-//		driver.switchTo().window(tabs2.get(2));
-//	
-//		
-////		<--- Validating office address text is display on google map and running a layer of assertion ---->
-//		String footerNamelabel = contactUsPage.validateCorrectGoogleMapContactUsOfficeAddress();
-//		System.out.println(footerNamelabel);
-//		Assert.assertEquals(footerNamelabel, "50 Awolowo Rd, Ikoyi 106104, Lagos", " The address displayed does not matched");
 //	}
 //	
 //	
@@ -498,10 +488,23 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	@Test(priority = 11)
 //	public void verifyUserCanSignUpToMailingList() throws Exception
 //	{
+//		Thread.sleep(2000);
+//		loginPage = homePage.validateClickOnLoginLink();
+//		Thread.sleep(3000);
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(4000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
+//		
 //		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateSignUpToMailingList(prop.getProperty("userEmail"));
+//		privacy_PolicyPage = privacy_PolicyPage.validateSignUpToMailingList(prop.getProperty("userEmail"));
 //		
 ////		<--- Validating SignUp To Mailing List success and running two layers of assertion ---->
 //		Thread.sleep(3000);
@@ -511,8 +514,8 @@ public class Privacy_PolicyPageTest extends TestBase {
 //			 
 //			
 //		boolean successPromptText = driver.getPageSource().contains("Success.");
-//	//	Assert.assertEquals(pageNamelText, true);
-//		Assert.assertTrue(successPromptText);
+//		Assert.assertEquals(successPromptText, true);
+////		Assert.assertTrue(successPromptText);
 //		System.out.println(successPromptText);
 //	}
 //
@@ -525,17 +528,30 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	 
 //	@JiraPolicy(logTicketReady = true)
 //	@Test(priority = 12)
-//	public void verifyUserCannotSignUpToMailingListWithEmail_WithOutDotCom() throws Exception
+//	public void verifyUserCannotSignUpToMailingListWithEmail_WithOutEmailDomeNameExtension () throws Exception
 //	{
+//		Thread.sleep(2000);
+//		loginPage = homePage.validateClickOnLoginLink();
+//		Thread.sleep(3000);
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(4000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
+//		 
 //		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("emailWithOutDotCom"));
+//        privacy_PolicyPage = privacy_PolicyPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("emailWithoutDomeNameExtension"));
 //		Thread.sleep(2000);
 //	
 ////		<--- Validating SignUp To Mailing List success and running two layers of assertion ---->
 //		
-//		String invalidEmailErrorPrompt = contactUsPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
+//		String invalidEmailErrorPrompt = privacy_PolicyPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
 //		Assert.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
 //		System.out.println(invalidEmailErrorPrompt);
 //
@@ -554,17 +570,32 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	
 //	@JiraPolicy(logTicketReady = true)
 //	@Test(priority = 13)
-//	public void verifyUserCannotSignUpToMailingListWithEmail_WithoutATgmail() throws Exception
+//	public void verifyUserCannotSignUpToMailingListWithEmail_emailWithoutServerHostName() throws Exception
 //	{
+//		Thread.sleep(2000);
+//		loginPage = homePage.validateClickOnLoginLink();
+//		Thread.sleep(3000);
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(4000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
+//		
+//		
 //		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("emailWithOut@gmail"));
+////		Sign up to mailing list with email without gmail
+//		privacy_PolicyPage = privacy_PolicyPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("emailWithoutServerHostName"));
 //		Thread.sleep(2000);
 //	
 ////		<--- Validating SignUp To Mailing List invalid email error prompt and running two layers of assertion ---->
 //		
-//		String invalidEmailErrorPrompt = contactUsPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
+//		String invalidEmailErrorPrompt = privacy_PolicyPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
 //		Assert.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
 //		System.out.println(invalidEmailErrorPrompt);
 //			 
@@ -584,14 +615,28 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	@Test(priority = 14)
 //	public void verifyUserCannotSignUpToMailingListWith_PhoneNumber() throws Exception
 //	{
+//		Thread.sleep(2000);
+//		loginPage = homePage.validateClickOnLoginLink();
+//		Thread.sleep(3000);
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(4000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
+//		
+//		
 //		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("signUpWithPhoneNo"));
+//		privacy_PolicyPage = privacy_PolicyPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("signUpWithPhoneNo"));
 //	
 ////	<--- Validating SignUp To Mailing List invalid email error prompt and running two layers of assertion ---->
 //		
-//		String invalidEmailErrorPrompt = contactUsPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
+//		String invalidEmailErrorPrompt = privacy_PolicyPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
 //		System.out.println(invalidEmailErrorPrompt);
 //		Assert.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
 //			 
@@ -611,15 +656,28 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	@Test(priority = 15)
 //	public void verify_SUCCESS_IsPromptedWhenUserSuccessfullySignUpToMailingListWithValidEmail() throws Exception
 //	{
+//		Thread.sleep(2000);
+//		loginPage = homePage.validateClickOnLoginLink();
+//		Thread.sleep(3000);
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(4000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
+//		
 //		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("userEmail"));
+//		privacy_PolicyPage = privacy_PolicyPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("userEmail"));
 //		Thread.sleep(2000);
 //	
 ////		<--- Validating SignUp To Mailing List Success prompt and running two layers of assertion ---->
 //		
-//		String signUpMailingListSuccessPrompt = contactUsPage.validateSignUpToMailingListSuccessPrompt();
+//		String signUpMailingListSuccessPrompt = privacy_PolicyPage.validateSignUpToMailingListSuccessPrompt();
 //		Assert.assertEquals(signUpMailingListSuccessPrompt, "Success.", "Text displayed does not matched");
 //		System.out.println(signUpMailingListSuccessPrompt);
 //		
@@ -639,15 +697,28 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	@Test(priority = 16)
 //	public void verify_InvalidEmailAddress_IsPromptedWhenUserAttemptedToSignUpToMailingListWithInvalidEmail() throws Exception
 //	{
+//		Thread.sleep(2000);
+//		loginPage = homePage.validateClickOnLoginLink();
+//		Thread.sleep(3000);
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(4000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//		
+//		
 //		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("emailWithOut@gmail"));
+//		privacy_PolicyPage = privacy_PolicyPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("emailWithOut@gmail"));
 //		Thread.sleep(2000);
 //	
 ////		<--- Validating SignUp To Mailing List invalid email error prompt and running two layers of assertion ---->
 //		
-//		String invalidEmailErrorPrompt = contactUsPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
+//		String invalidEmailErrorPrompt = privacy_PolicyPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
 //		Assert.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
 //		System.out.println(invalidEmailErrorPrompt);
 //
@@ -668,32 +739,47 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	@Test(priority = 17)
 //	public void verifyUserCanClickOnGooglePlayLink() throws Exception
 //	{
-//		Thread.sleep(4000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
+//		Thread.sleep(2000);
+//		loginPage = homePage.validateClickOnLoginLink();
 //		Thread.sleep(3000);
-//		contactUsPage = contactUsPage.validateClickOnGooglePlayLlink();
+//		
+////      <---  Create Array List to keep Tab information ---->
+//        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs2.get(1));
+//         
+//        Thread.sleep(4000);    		
+//        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+//        
+//        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+//        driver.switchTo().window(tabs3.get(2));
+//	
+//		
+//		
+//		Thread.sleep(3000);
+//		privacy_PolicyPage = privacy_PolicyPage.validateClickOnGooglePlayLlink();
 //		
 ////	<---  Create Array List to keep Tab information ---->
-//		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//		ArrayList<String> tabs4 = new ArrayList<String>(driver.getWindowHandles());
 //
 ////	<----  Navigate to New Tab ---->
-//		driver.switchTo().window(tabs2.get(1));
+//		driver.switchTo().window(tabs4.get(3));
 //		
 //		
 ////		<--- Validating Google play button and running three layers of assertion ---->
 //		String url = driver.getCurrentUrl();
-//		System.out.println(url);
 //		Assert.assertEquals(url, "https://play.google.com/store/apps/details?id=com.fbistech.beamsity", "URL does not matched");
+//		System.out.println(url);
+//
 //		
 //		
-//		
-//		String pageNamelabel = contactUsPage.validateCorrectGooglePlayPageName();
-//		System.out.println(pageNamelabel);
+//		String pageNamelabel = privacy_PolicyPage.validateCorrectGooglePlayPageName();
 //		Assert.assertEquals(pageNamelabel, "BeamSity", " Text displayed does not matched");
+//		System.out.println(pageNamelabel);
+//
 //		
 //		boolean text = driver.getPageSource().contains("BeamSity");
-//		System.out.println(text);
 //		Assert.assertTrue(text);	
+//		System.out.println(text); 
 //	}
 //	
 //	
@@ -702,38 +788,60 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	
 //	
 //	
-//	@JiraPolicy(logTicketReady = true)
-//	@Test(priority = 18)
-//	public void verifyUserCanInstallBeamsityApp() throws Exception
-//	{
-//		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateUserInstallBeamsityApp();
-//		
-////		<---  Create Array List to keep Tab information ---->
-//		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+	@JiraPolicy(logTicketReady = true)
+	@Test(priority = 18)
+	public void verifyUserCanInstallBeamsityApp() throws Exception
+	{
+		Thread.sleep(2000);
+		loginPage = homePage.validateClickOnLoginLink();
+		Thread.sleep(3000);
+		
+//      <---  Create Array List to keep Tab information ---->
+        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs2.get(1));
+         
+        Thread.sleep(4000);    		
+        privacy_PolicyPage = privacy_PolicyPage.validateClickOnTermsAndConditionsLink();
+        
+        ArrayList<String> tabs3 = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs3.get(2));
+	
+		
+		
+		Thread.sleep(3000);
+		privacy_PolicyPage = privacy_PolicyPage.validateClickOnGooglePlayLlink();
+		
+		ArrayList<String> tabs4 = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs4.get(3));
+	
+		
+
+		Thread.sleep(5000);
+		privacy_PolicyPage = privacy_PolicyPage.validateUserInstallBeamsityApp();
+		
+//		<---  Create Array List to keep Tab information ---->
+//		ArrayList<String> tabs5 = new ArrayList<String>(driver.getWindowHandles());
 //
 ////		<----  Navigate to New Tab ---->
-//		driver.switchTo().window(tabs2.get(1));
-//				
-////		<---- Validating Google play button and running three layers of assertion ---->
-//		String url = driver.getCurrentUrl();
-//		Assert.assertEquals(url, "https://play.google.com/store/apps/details?id=com.fbistech.beamsity", "The URL does not matched");
-//		System.out.println(url);
-//
-//		
-//		String footerNameLabel = contactUsPage.validateCorrectGooglePlayPageName();
-//		Assert.assertEquals(footerNameLabel, "BeamSity", "Text displayed does not matched");
-//		System.out.println(footerNameLabel);
-// 
-//			
-//		boolean pageNamelText = driver.getPageSource().contains("BeamSity");
-//	//	Assert.assertEquals(pageNamelText, true);
-//		Assert.assertTrue(pageNamelText);	
-//		System.out.println(pageNamelText);
-//	}
-//	
+//		driver.switchTo().window(tabs5.get(4));
+				
+//		<---- Validating Google play button and running three layers of assertion ---->
+		String url = driver.getCurrentUrl();
+		Assert.assertEquals(url, "https://play.google.com/store/apps/details?id=com.fbistech.beamsity", "The URL does not matched");
+		System.out.println(url);
+
+		
+		String footerNameLabel = privacy_PolicyPage.validateCorrectGooglePlayPageName();
+		Assert.assertEquals(footerNameLabel, "BeamSity", "Text displayed does not matched");
+		System.out.println(footerNameLabel);
+ 
+			
+		boolean pageNamelText = driver.getPageSource().contains("BeamSity");
+	//	Assert.assertEquals(pageNamelText, true);
+		Assert.assertTrue(pageNamelText);	
+		System.out.println(pageNamelText);
+	}
+	
 //	
 //	
 //	
