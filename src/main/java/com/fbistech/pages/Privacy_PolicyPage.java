@@ -85,8 +85,7 @@ public class Privacy_PolicyPage extends TestBase {
 	
 
 	
-
-	@FindBy(xpath = "//div[@class='css-xldign']//a[@href='mailto:info@beamsity.com'][normalize-space()='Info@beamsity.com']")
+	@FindBy(xpath = "//a[contains(text(),'info@beamsity.com')]")
 	@CacheLookup
 	WebElement contactEmail;
 	
@@ -421,7 +420,7 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 	
-	public Privacy_PolicyPage validatePartnerWithUsLink()
+	public Privacy_PolicyPage validateClickOnPartnerWithUsLink()
 	{
 		partnerWithUsLink.click();
 		return new Privacy_PolicyPage();
@@ -537,17 +536,16 @@ public class Privacy_PolicyPage extends TestBase {
 	
 	
 	
+
 	
-	
-	
-	public ContactUsPage  validateClickOnContactEmail() throws Exception
+	public Privacy_PolicyPage  validateClickOnContactEmail() throws Exception
 	{
 		Thread.sleep(3000);
 		JavascriptExecutor scroll = (JavascriptExecutor) driver;
 		scroll.executeScript("arguments[0].scrollIntoView(true)", contactEmail);
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 		contactEmail.click();
-		return new ContactUsPage();
+		return new Privacy_PolicyPage();
 	}
 	
 	

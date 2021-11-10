@@ -83,7 +83,7 @@ public class ContactUsPage extends TestBase {
 
 	
 
-	@FindBy(xpath = "//div[@class='css-xldign']//a[@href='mailto:info@beamsity.com'][normalize-space()='Info@beamsity.com']")
+	@FindBy(xpath = "//a[contains(text(),'info@beamsity.com')]")
 	@CacheLookup
 	WebElement contactEmail;
 	

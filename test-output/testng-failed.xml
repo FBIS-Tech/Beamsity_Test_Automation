@@ -5,9 +5,26 @@
     <classes>
       <class name="com.fbistech.testcases.Privacy_PolicyPageTest">
         <methods>
-          <include name="setUp"/>
+          <include name="verifyUserCanClickOnContactUsLink"/>
+          <include name="verifyUserCanSignUpToMailingList"/>
+          <include name="verify_InvalidEmailAddress_IsPromptedWhenUserAttemptedToSignUpToMailingListWithInvalidEmail"/>
+          <include name="verifyUserCanClickOnAboutUsLink"/>
+          <include name="verifyUserCanClickOnPartnerWithUsLink"/>
           <include name="tearDown"/>
+          <include name="verifyUserCanClickOnPrivacyPolicyLink"/>
+          <include name="verifyUserCanClickOnContactUsEmail"/>
+          <include name="verifyUserCanClickOnLoginLink"/>
           <include name="verifyUserCanInstallBeamsityApp"/>
+          <include name="verifyUserCanNavigateToTermsAndConditionsPage"/>
+          <include name="verifyUserCannotSignUpToMailingListWithEmail_emailWithoutServerHostName"/>
+          <include name="setUp"/>
+          <include name="verifyUserCannotSignUpToMailingListWith_PhoneNumber"/>
+          <include name="verify_SUCCESS_IsPromptedWhenUserSuccessfullySignUpToMailingListWithValidEmail"/>
+          <include name="verifyUserCanClickOnTeachOnBeamsitykLink"/>
+          <include name="verifyUserCannotSignUpToMailingListWithEmail_WithOutEmailDomeNameExtension"/>
+          <include name="verifyUserIsRedirectedToGoogleMapNavigation_ClickOnContactAddressLink"/>
+          <include name="verifyUserCanClickSchools_OrganizationsPageLink"/>
+          <include name="verifyUserCanClickOnGooglePlayLink"/>
         </methods>
       </class> <!-- com.fbistech.testcases.Privacy_PolicyPageTest -->
     </classes>
