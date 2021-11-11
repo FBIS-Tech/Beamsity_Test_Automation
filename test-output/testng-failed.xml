@@ -3,30 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.fbistech.testcases.Privacy_PolicyPageTest">
+      <class name="com.fbistech.testcases.PartnerWithUsPageTest">
         <methods>
-          <include name="verifyUserCanClickOnContactUsLink"/>
-          <include name="verifyUserCanSignUpToMailingList"/>
-          <include name="verify_InvalidEmailAddress_IsPromptedWhenUserAttemptedToSignUpToMailingListWithInvalidEmail"/>
-          <include name="verifyUserCanClickOnAboutUsLink"/>
-          <include name="verifyUserCanClickOnPartnerWithUsLink"/>
-          <include name="tearDown"/>
-          <include name="verifyUserCanClickOnPrivacyPolicyLink"/>
-          <include name="verifyUserCanClickOnContactUsEmail"/>
-          <include name="verifyUserCanClickOnLoginLink"/>
-          <include name="verifyUserCanInstallBeamsityApp"/>
-          <include name="verifyUserCanNavigateToTermsAndConditionsPage"/>
-          <include name="verifyUserCannotSignUpToMailingListWithEmail_emailWithoutServerHostName"/>
           <include name="setUp"/>
-          <include name="verifyUserCannotSignUpToMailingListWith_PhoneNumber"/>
-          <include name="verify_SUCCESS_IsPromptedWhenUserSuccessfullySignUpToMailingListWithValidEmail"/>
-          <include name="verifyUserCanClickOnTeachOnBeamsitykLink"/>
-          <include name="verifyUserCannotSignUpToMailingListWithEmail_WithOutEmailDomeNameExtension"/>
-          <include name="verifyUserIsRedirectedToGoogleMapNavigation_ClickOnContactAddressLink"/>
-          <include name="verifyUserCanClickSchools_OrganizationsPageLink"/>
-          <include name="verifyUserCanClickOnGooglePlayLink"/>
+          <include name="tearDown"/>
+          <include name="verifyUserCanFillTutorForm"/>
         </methods>
-      </class> <!-- com.fbistech.testcases.Privacy_PolicyPageTest -->
+      </class> <!-- com.fbistech.testcases.PartnerWithUsPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

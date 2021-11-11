@@ -34,8 +34,8 @@ public class TutorPageTest extends TestBase {
 		tutorPage = new TutorPage();
 		
 	}
-	
-	
+//	
+//	
 //	@JiraPolicy(logTicketReady=true)
 //	@Test(priority = 1) 
 //	public void verifyUserCanClickTutorFormBtn() 
@@ -53,7 +53,7 @@ public class TutorPageTest extends TestBase {
 //				prop.getProperty("emailAddress"), prop.getProperty("phoneNo"), prop.getProperty("uploadCourseFile"));
 //		
 //	}
-//	
+	
 	
 	
 	
