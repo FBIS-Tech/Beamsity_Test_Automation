@@ -5,9 +5,10 @@
     <classes>
       <class name="com.fbistech.testcases.PartnerWithUsPageTest">
         <methods>
+          <include name="verifyUserCanInstallBeamsityApp"/>
+          <include name="verifyUserCanClickOnGooglePlayLink"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="verifyUserCanFillTutorForm"/>
         </methods>
       </class> <!-- com.fbistech.testcases.PartnerWithUsPageTest -->
     </classes>

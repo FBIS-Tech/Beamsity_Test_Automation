@@ -1,5 +1,9 @@
 package com.fbistech.testcases;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.AssertJUnit;
 import java.util.ArrayList;
 
 import org.testng.Assert;
@@ -41,6 +45,7 @@ public class Privacy_PolicyPageTest extends TestBase {
 	{
 		super();
 	}
+	
 	
 	
 	
@@ -92,17 +97,17 @@ public class Privacy_PolicyPageTest extends TestBase {
 		
 		String url = driver.getCurrentUrl();
 		System.out.println(url);
-		Assert.assertEquals(url, "https://beamsity.com/privacy_policy/", "URL does not matched");
+		AssertJUnit.assertEquals(url, "https://beamsity.com/privacy_policy/", "URL does not matched");
 		
 		
 //		<--- Validating BeamSity for Organizations context is display and running two layers of assertion ---->
 		
 		String pageNamelabel = privacy_PolicyPage.validateCorrectPrivacyPolicyPageNameLabel();
-		Assert.assertEquals(pageNamelabel, "Privacy Policy", "Text displayed does not matched");
+		AssertJUnit.assertEquals(pageNamelabel, "Privacy Policy", "Text displayed does not matched");
 		System.out.println(pageNamelabel);
 
 		boolean text = driver.getPageSource().contains("Privacy Policy");
-		Assert.assertTrue(text);
+		AssertJUnit.assertTrue(text);
 		System.out.println(text);
 	}
 	
@@ -138,17 +143,17 @@ public class Privacy_PolicyPageTest extends TestBase {
 	
 		String url = driver.getCurrentUrl();
 		System.out.println(url);
-		Assert.assertEquals(url, "https://beamsity.com/organization", "URL does not matched");
+		AssertJUnit.assertEquals(url, "https://beamsity.com/organization", "URL does not matched");
 		
 	//	<--- Validating Make an Impact context is display and running two layers of assertion ---->
 		
 		String pageNamelabel = privacy_PolicyPage.validateCorrectSchools_OrganizationsPageName();
-		Assert.assertEquals(pageNamelabel, "BeamSity for Organizations", "Text displayed does not matched");
+		AssertJUnit.assertEquals(pageNamelabel, "BeamSity for Organizations", "Text displayed does not matched");
 		System.out.println(pageNamelabel);
 
 		
 		boolean text = driver.getPageSource().contains("BeamSity for Organizations");
-		Assert.assertTrue(text);
+		AssertJUnit.assertTrue(text);
 		System.out.println(text);
 	}
 	
@@ -183,17 +188,17 @@ public class Privacy_PolicyPageTest extends TestBase {
 	
 		String url = driver.getCurrentUrl();
 		System.out.println(url);
-		Assert.assertEquals(url, "https://beamsity.com/become_a_tutor", "URL does not matched");
+		AssertJUnit.assertEquals(url, "https://beamsity.com/become_a_tutor", "URL does not matched");
 		
 	//	<--- Validating Make an Impact context is display and running two layers of assertion ---->
 		
 		String pageNamelabel = privacy_PolicyPage.validateCorrectTeachOnBeamsityPageName();
 		System.out.println(pageNamelabel);
-		Assert.assertEquals(pageNamelabel, "Make an Impact", "Text displayed does not matched");
+		AssertJUnit.assertEquals(pageNamelabel, "Make an Impact", "Text displayed does not matched");
 		
 		boolean text = driver.getPageSource().contains("Make an Impact");
 		System.out.println(text);
-		Assert.assertTrue(text);
+		AssertJUnit.assertTrue(text);
 	}
 	
 	
@@ -227,22 +232,22 @@ public class Privacy_PolicyPageTest extends TestBase {
 //	<-----	Assertion on contact us url ------>
 		String url = driver.getCurrentUrl();
 		System.out.println(url);
-		Assert.assertEquals(url, "https://beamsity.com/contactus", "URL does not matched");
+		AssertJUnit.assertEquals(url, "https://beamsity.com/contactus", "URL does not matched");
 		
 //	<----- Validating Contact Us! text is display and running two layers of assertion ---->
 		
 		String pageNameLabel1 = privacy_PolicyPage.validateCorrectContactUsPageName();
 		System.out.println(pageNameLabel1);
-		Assert.assertEquals(pageNameLabel1, "Contact Us!", "Text displayed does not matched");
+		AssertJUnit.assertEquals(pageNameLabel1, "Contact Us!", "Text displayed does not matched");
 		
 		
 		String pageNameLabel2 = privacy_PolicyPage.validateCorrectContactUsFooterName();
 		System.out.println(pageNameLabel2);
-		Assert.assertEquals(pageNameLabel2, "CONTACT US", "Text displayed does not matched");
+		AssertJUnit.assertEquals(pageNameLabel2, "CONTACT US", "Text displayed does not matched");
 		
 		boolean text = driver.getPageSource().contains("Contact Us!");
 		System.out.println(text);
-		Assert.assertTrue(text);
+		AssertJUnit.assertTrue(text);
 	}
 	
 	
@@ -280,7 +285,7 @@ public class Privacy_PolicyPageTest extends TestBase {
 //      <--- Validating login URL and running an assertion ---->
         String url = driver.getCurrentUrl();
 		System.out.println(url);
-		Assert.assertEquals(url, "https://portal.beamsity.com/", "URL does not matched");
+		AssertJUnit.assertEquals(url, "https://portal.beamsity.com/", "URL does not matched");
 		
 		
 //		<--- Validating login text is display and running two layers of assertion ---->
@@ -288,11 +293,11 @@ public class Privacy_PolicyPageTest extends TestBase {
 		
 		String pageNamelabel = privacy_PolicyPage.validateCorrectLoginPageName();
 		System.out.println(pageNamelabel);
-		Assert.assertEquals(pageNamelabel, "Log In", "Text displayed does not matched");
+		AssertJUnit.assertEquals(pageNamelabel, "Log In", "Text displayed does not matched");
 		
 		boolean text = driver.getPageSource().contains("Log In");
 		System.out.println(text);
-		Assert.assertTrue(text);
+		AssertJUnit.assertTrue(text);
 	}
 	
 	
@@ -328,17 +333,17 @@ public class Privacy_PolicyPageTest extends TestBase {
 	
 		String url = driver.getCurrentUrl();
 		System.out.println(url);
-		Assert.assertEquals(url, "https://beamsity.com/sponsor");
+		AssertJUnit.assertEquals(url, "https://beamsity.com/sponsor");
 		
 //		<--- Validating partner with us text is display and running 2 layers of assertion ---->
 		
 		String pageNamelabel = privacy_PolicyPage.validateCorrectPartnerWithUsPageName();
 		System.out.println(pageNamelabel);
-		Assert.assertEquals(pageNamelabel, "Partner with us today", "Text displayed does not matched");
+		AssertJUnit.assertEquals(pageNamelabel, "Partner with us today", "Text displayed does not matched");
 		
 		boolean text = driver.getPageSource().contains("Partner with us today");
 		System.out.println(text);
-		Assert.assertTrue(text);
+		AssertJUnit.assertTrue(text);
 	}
 	
 	
@@ -374,17 +379,17 @@ public class Privacy_PolicyPageTest extends TestBase {
 		
 		
 		String url = driver.getCurrentUrl();
-		Assert.assertEquals(url, "https://beamsity.com/about_us", "URL does not matched");
+		AssertJUnit.assertEquals(url, "https://beamsity.com/about_us", "URL does not matched");
 		System.out.println(url);
 	
 //		<--- Validating Make an Impact context is display and running two layers of assertion ---->	
 		
 		String footerNameLabel = privacy_PolicyPage.validateCorrectAboutUsFooterName();
 		System.out.println(footerNameLabel);
-		Assert.assertEquals(footerNameLabel, "About Us", "Text displayed does not matched");
+		AssertJUnit.assertEquals(footerNameLabel, "About Us", "Text displayed does not matched");
 		
 		boolean text = driver.getPageSource().contains("About Us");
-		Assert.assertTrue(text);
+		AssertJUnit.assertTrue(text);
 		System.out.println(text);
 	}
 	
@@ -421,17 +426,17 @@ public class Privacy_PolicyPageTest extends TestBase {
 		
 		String url = driver.getCurrentUrl();
 		System.out.println(url);
-		Assert.assertEquals(url, "https://beamsity.com/privacy_policy", "URL does not matched");
+		AssertJUnit.assertEquals(url, "https://beamsity.com/privacy_policy", "URL does not matched");
 		
 //		<--- Validating Make an Impact context is display and running two layers of assertion ---->
 		
 		String footerNameLabel = privacy_PolicyPage.validateCorrectPrivacyPolicyFooterName();
-		Assert.assertEquals(footerNameLabel, "Privacy Policy", "Text displayed does not matched");
+		AssertJUnit.assertEquals(footerNameLabel, "Privacy Policy", "Text displayed does not matched");
 		System.out.println(footerNameLabel);
 
 		
 		boolean text = driver.getPageSource().contains("Privacy Policy");
-		Assert.assertTrue(text);
+		AssertJUnit.assertTrue(text);
 		System.out.println(text);
 	}
 	
@@ -469,12 +474,12 @@ public class Privacy_PolicyPageTest extends TestBase {
 //		<--- Validating office address text is display on google map and running a layer of assertion ---->
 		String footerNamelabel = privacy_PolicyPage.validateCorrectGoogleMapContactUsOfficeAddress();
 		System.out.println(footerNamelabel);
-		Assert.assertEquals(footerNamelabel, "50 Awolowo Rd, Ikoyi 106104, Lagos", " The address displayed does not matched");
+		AssertJUnit.assertEquals(footerNamelabel, "50 Awolowo Rd, Ikoyi 106104, Lagos", " The address displayed does not matched");
 		
 		
 //		<--- Validating office address text is display on the footer and running a layer of assertion ---->
 		boolean text = driver.getPageSource().contains("50 Awolowo Rd, Ikoyi 106104, Lagos");
-		Assert.assertTrue(text);
+		AssertJUnit.assertTrue(text);
 		System.out.println(text);
 	}
 	
@@ -509,12 +514,12 @@ public class Privacy_PolicyPageTest extends TestBase {
 //		<--- Validating SignUp To Mailing List success and running two layers of assertion ---->
 		Thread.sleep(3000);
 		String successPrompt = contactUsPage.validateSignUpToMailingListSuccessPrompt();
-		Assert.assertEquals(successPrompt, "Success.", "Text displayed does not matched");
+		AssertJUnit.assertEquals(successPrompt, "Success.", "Text displayed does not matched");
 		System.out.println(successPrompt);
 			 
 			
 		boolean successPromptText = driver.getPageSource().contains("Success.");
-		Assert.assertEquals(successPromptText, true);
+		AssertJUnit.assertEquals(successPromptText, true);
 //		Assert.assertTrue(successPromptText);
 		System.out.println(successPromptText);
 	}
@@ -552,13 +557,13 @@ public class Privacy_PolicyPageTest extends TestBase {
 //		<--- Validating SignUp To Mailing List success and running two layers of assertion ---->
 		
 		String invalidEmailErrorPrompt = privacy_PolicyPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
-		Assert.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
+		AssertJUnit.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
 		System.out.println(invalidEmailErrorPrompt);
 
 			
 		boolean InvalidEmailErrorPrompt = driver.getPageSource().contains("The email must be a valid email address.");
 	//	Assert.assertEquals(pageNamelText, true);
-		Assert.assertTrue(InvalidEmailErrorPrompt);
+		AssertJUnit.assertTrue(InvalidEmailErrorPrompt);
 		System.out.println(InvalidEmailErrorPrompt);
 	}
 
@@ -596,12 +601,12 @@ public class Privacy_PolicyPageTest extends TestBase {
 //		<--- Validating SignUp To Mailing List invalid email error prompt and running two layers of assertion ---->
 		
 		String invalidEmailErrorPrompt = privacy_PolicyPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
-		Assert.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
+		AssertJUnit.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
 		System.out.println(invalidEmailErrorPrompt);
 			 
 		boolean inValidEmailErrorPrompt = driver.getPageSource().contains("The email must be a valid email address.");
 	//	Assert.assertEquals(pageNamelText, true);
-		Assert.assertTrue(inValidEmailErrorPrompt);
+		AssertJUnit.assertTrue(inValidEmailErrorPrompt);
 		System.out.println(inValidEmailErrorPrompt);
 	}
 	
@@ -638,12 +643,12 @@ public class Privacy_PolicyPageTest extends TestBase {
 		
 		String invalidEmailErrorPrompt = privacy_PolicyPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
 		System.out.println(invalidEmailErrorPrompt);
-		Assert.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
+		AssertJUnit.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
 			 
 		boolean InvalidEmailErrorPrompt = driver.getPageSource().contains("The email must be a valid email address.");
 		System.out.println(InvalidEmailErrorPrompt);
 	//	Assert.assertEquals(pageNamelText, true);
-		Assert.assertTrue(InvalidEmailErrorPrompt);
+		AssertJUnit.assertTrue(InvalidEmailErrorPrompt);
 	}
 	
 	
@@ -678,12 +683,12 @@ public class Privacy_PolicyPageTest extends TestBase {
 //		<--- Validating SignUp To Mailing List Success prompt and running two layers of assertion ---->
 		
 		String signUpMailingListSuccessPrompt = privacy_PolicyPage.validateSignUpToMailingListSuccessPrompt();
-		Assert.assertEquals(signUpMailingListSuccessPrompt, "Success.", "Text displayed does not matched");
+		AssertJUnit.assertEquals(signUpMailingListSuccessPrompt, "Success.", "Text displayed does not matched");
 		System.out.println(signUpMailingListSuccessPrompt);
 		
 		boolean InvalidEmailErrorPrompt = driver.getPageSource().contains("Success.");
 	//	Assert.assertEquals(pageNamelText, true);
-		Assert.assertTrue(InvalidEmailErrorPrompt);
+		AssertJUnit.assertTrue(InvalidEmailErrorPrompt);
 		System.out.println(InvalidEmailErrorPrompt);
 	}
 	
@@ -719,13 +724,13 @@ public class Privacy_PolicyPageTest extends TestBase {
 //		<--- Validating SignUp To Mailing List invalid email error prompt and running two layers of assertion ---->
 		
 		String invalidEmailErrorPrompt = privacy_PolicyPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
-		Assert.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
+		AssertJUnit.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
 		System.out.println(invalidEmailErrorPrompt);
 
 		
 		boolean InvalidEmailErrorPrompt = driver.getPageSource().contains("The email must be a valid email address.");
 	//	Assert.assertEquals(pageNamelText, true);
-		Assert.assertTrue(InvalidEmailErrorPrompt);
+		AssertJUnit.assertTrue(InvalidEmailErrorPrompt);
 		System.out.println(InvalidEmailErrorPrompt);
 	}
 	
@@ -767,18 +772,18 @@ public class Privacy_PolicyPageTest extends TestBase {
 		
 //		<--- Validating Google play button and running three layers of assertion ---->
 		String url = driver.getCurrentUrl();
-		Assert.assertEquals(url, "https://play.google.com/store/apps/details?id=com.fbistech.beamsity", "URL does not matched");
+		AssertJUnit.assertEquals(url, "https://play.google.com/store/apps/details?id=com.fbistech.beamsity", "URL does not matched");
 		System.out.println(url);
 
 		
 		
 		String pageNamelabel = privacy_PolicyPage.validateCorrectGooglePlayPageName();
-		Assert.assertEquals(pageNamelabel, "BeamSity", " Text displayed does not matched");
+		AssertJUnit.assertEquals(pageNamelabel, "BeamSity", " Text displayed does not matched");
 		System.out.println(pageNamelabel);
 
 		
 		boolean text = driver.getPageSource().contains("BeamSity");
-		Assert.assertTrue(text);	
+		AssertJUnit.assertTrue(text);	
 		System.out.println(text); 
 	}
 	
@@ -822,18 +827,18 @@ public class Privacy_PolicyPageTest extends TestBase {
 				
 //		<---- Validating Google play button and running three layers of assertion ---->
 		String url = driver.getCurrentUrl();
-		Assert.assertEquals(url, "https://play.google.com/store/apps/details?id=com.fbistech.beamsity", "The URL does not matched");
+		AssertJUnit.assertEquals(url, "https://play.google.com/store/apps/details?id=com.fbistech.beamsity", "The URL does not matched");
 		System.out.println(url);
 
 		
 		String footerNameLabel = privacy_PolicyPage.validateCorrectGooglePlayPageName();
-		Assert.assertEquals(footerNameLabel, "BeamSity", "Text displayed does not matched");
+		AssertJUnit.assertEquals(footerNameLabel, "BeamSity", "Text displayed does not matched");
 		System.out.println(footerNameLabel);
  
 			
 		boolean pageNamelText = driver.getPageSource().contains("BeamSity");
 	//	Assert.assertEquals(pageNamelText, true);
-		Assert.assertTrue(pageNamelText);	
+		AssertJUnit.assertTrue(pageNamelText);	
 		System.out.println(pageNamelText);
 	}
 	
@@ -875,16 +880,16 @@ public class Privacy_PolicyPageTest extends TestBase {
 	
 		String url = driver.getCurrentUrl();
 		System.out.println(url);
-		Assert.assertEquals(url, "https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=info@beamsity.com", "URL does not matched");
+		AssertJUnit.assertEquals(url, "https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=info@beamsity.com", "URL does not matched");
 		
 		
 		String pageNameLabel = privacy_PolicyPage.validateCorrectEmailAddressName();
 		System.out.println(pageNameLabel);
-		Assert.assertEquals(pageNameLabel, "info@beamsity.com", " Email Address displayed does not matched");
+		AssertJUnit.assertEquals(pageNameLabel, "info@beamsity.com", " Email Address displayed does not matched");
 		
 		boolean text = driver.getPageSource().contains("info@beamsity.com");
 		System.out.println(text);
-		Assert.assertTrue(text);	
+		AssertJUnit.assertTrue(text);	
 	}
 //	
 	
@@ -912,6 +917,7 @@ public class Privacy_PolicyPageTest extends TestBase {
 	
 	
 	
+
 	@AfterMethod
 	public void tearDown() throws Exception
 	{

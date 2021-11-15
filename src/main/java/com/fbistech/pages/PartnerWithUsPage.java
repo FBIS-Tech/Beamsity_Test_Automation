@@ -93,27 +93,27 @@ public class PartnerWithUsPage extends TestBase {
 	
 	
 	@FindBy(xpath = "//input[@id='schoolName']")  
-	WebElement schoolNameField;
+	WebElement school_OrganizationNameField;
 	
 	
-	
-	@FindBy(xpath = "//input[@id='first_name']") 
-	WebElement firstName;
+					 
+	@FindBy(xpath = "//input[@id='firstName']") 
+	WebElement firstNameField;
 
 	
 	
-	@FindBy(xpath = "//input[@id='last_name']") 
-	WebElement lastName;
+	@FindBy(xpath = "//input[@id='lastName']") 
+	WebElement lastNameField;
 	
 	
 	
 	@FindBy(xpath = "//input[@id='email']") 
-	WebElement email;
+	WebElement emailField;
 
 	
 	
-	@FindBy(xpath = "//input[@id='phone_number']") 
-	WebElement phoneNo;
+	@FindBy(xpath = "//input[@id='phone']") 
+	WebElement phoneNoField;
 
 	
 	
@@ -124,13 +124,45 @@ public class PartnerWithUsPage extends TestBase {
 	
 	
 	
-  
 	
 	
-	
+	@FindBy(xpath = "//li[@class='chakra-toast']//div[@class='chakra-alert__title css-14esyki'][normalize-space()='Success.']")
+	@CacheLookup
+	WebElement enquirySentSUCCESSPrompt;
 	
 
 	
+	@FindBy(xpath = "//li[@class='chakra-toast']//div[@class='chakra-alert__desc css-2xkhb3'][normalize-space()='Enquiry sent successfully']") //button[contains(text(),'Login')] //button[normalize-space()='Login']
+	@CacheLookup
+	WebElement enquirySentSuccessfullyText;
+	
+	
+					 															 
+	@FindBy(xpath = "//li[@class='chakra-toast']//*[@class='chakra-icon css-onkibi']") //li[@class='chakra-toast']//button[@aria-label='Close']
+	@CacheLookup
+	WebElement cancelSuccessPrompt;
+	
+	
+	
+	@FindBy(xpath = "//li[@class='chakra-toast']//*[@class='chakra-icon css-onkibi']")
+	@CacheLookup
+	WebElement cancelErrorPrompt;
+	
+	
+	
+	
+	@FindBy(xpath = "//li[@class='chakra-toast']//div[@class='chakra-alert__desc css-2xkhb3']"
+			+ "[normalize-space()='The first name field is required.']")
+	@CacheLookup
+	WebElement firstNameFieldIsRequiredErrorPrompt;
+
+	
+	
+	
+	@FindBy(xpath = "//li[@class='chakra-toast']//div[@class='chakra-alert__desc css-2xkhb3']"
+			+ "[normalize-space()='The email field is required.']")
+	@CacheLookup
+	WebElement emailFieldIsRequiredErrorPrompt;
 
 	
 	
@@ -431,7 +463,7 @@ public class PartnerWithUsPage extends TestBase {
 	
 	
 	public PartnerWithUsPage validateClickOnContactUsLinks() throws Exception
-	{
+	{ 
 		contactUsLink1.click();
 		Thread.sleep(4000);
 		driver.navigate().back();
@@ -456,6 +488,31 @@ public class PartnerWithUsPage extends TestBase {
 		return contactUsFooterNameLabel.getText();
 	}
 	
+	
+	
+	
+	
+	public PartnerWithUsPage validateClickOnCancelFieldRequiredErrorPrompt()
+	{
+		cancelErrorPrompt.click();
+		return new PartnerWithUsPage();
+	}
+	
+	
+	
+	
+	public String validateFirstNameFieldIsRequiredErrorPrompt()
+	{
+		return firstNameFieldIsRequiredErrorPrompt.getText();
+	}
+	
+	
+	
+	
+	public String validateEmailFieldIsRequiredErrorPrompt()
+	{
+		return emailFieldIsRequiredErrorPrompt.getText();
+	}
 	
 	
 	
@@ -496,21 +553,21 @@ public class PartnerWithUsPage extends TestBase {
 	
 	
 	
-	public PartnerWithUsPage validateCreateNewTutor(String firstNm, String lastNm, String e_Mail, String mobileNo) throws Exception
+	public PartnerWithUsPage validateFillTutorForm(String firstNm, String lastNm, String e_Mail, String mobileNo) throws Exception
 	{	
 //		Select selectInterestdd = new Select(selectInterest);
 //		selectInterestdd.selectByIndex(3);
 		
 		JavascriptExecutor scroll = (JavascriptExecutor) driver;
-		scroll.executeScript("window.scrollBy(0, 400);");
+		scroll.executeScript("window.scrollBy(0, 425)");
 		Thread.sleep(4000);
-		firstName.sendKeys(firstNm);
+		firstNameField.sendKeys(firstNm);
 		Thread.sleep(2000);
-		lastName.sendKeys(lastNm);
+		lastNameField.sendKeys(lastNm);
 		Thread.sleep(2000);
-		email.sendKeys(e_Mail);
+		emailField.sendKeys(e_Mail);
 		Thread.sleep(2000);
-		phoneNo.sendKeys(mobileNo);
+		phoneNoField.sendKeys(mobileNo);
 		
 //		
 //		Select selectCourseOfInterestdd = new Select(selectCourseOfInterest);
@@ -524,16 +581,80 @@ public class PartnerWithUsPage extends TestBase {
 	
 	
 	
+	public PartnerWithUsPage validateFillSchool_OrganizationForm(String school_OrganisationNm, String firstNm, String lastNm, String e_Mail, String mobileNo) throws Exception
+	{			
+		JavascriptExecutor scroll = (JavascriptExecutor) driver;
+		scroll.executeScript("window.scrollBy(0, 425)");
+		Thread.sleep(4000);
+		school_OrganizationFormBtn.click();
+		Thread.sleep(2000);
+		school_OrganizationNameField.sendKeys(school_OrganisationNm);
+		Thread.sleep(2000);
+		firstNameField.sendKeys(firstNm);
+		Thread.sleep(2000);
+		lastNameField.sendKeys(lastNm);
+		Thread.sleep(2000);
+		emailField.sendKeys(e_Mail);
+		Thread.sleep(2000);
+		phoneNoField.sendKeys(mobileNo);
+		
+		Thread.sleep(2000);
+		proceedButton.click();
+		return new PartnerWithUsPage();
+	} 
 	
+	 
+	
+	
+	public PartnerWithUsPage validateFillSponsorForm(String firstNm, String lastNm, String e_Mail, String mobileNo) throws Exception
+	{			
+		JavascriptExecutor scroll = (JavascriptExecutor) driver;
+		scroll.executeScript("window.scrollBy(0, 425)");
+		Thread.sleep(4000);
+		sponsorFormBtn.click();
+		Thread.sleep(2000);
+		firstNameField.sendKeys(firstNm);
+		Thread.sleep(2000);
+		lastNameField.sendKeys(lastNm);
+		Thread.sleep(2000);
+		emailField.sendKeys(e_Mail);
+		Thread.sleep(2000);
+		phoneNoField.sendKeys(mobileNo);
+		
+		Thread.sleep(2000);
+		proceedButton.click();
+		return new PartnerWithUsPage();
+	} 
+	
+	
+	
+	
+	public String validateEnquirySentSuccessPrompt()
+	{
+		return enquirySentSUCCESSPrompt.getText();
+	}
+	
+	
+	
+	public String validateEnquirySentSuccessfullyTextPrompt()
+	{
+		return enquirySentSuccessfullyText.getText();
+	}
+	
+	
+	public PartnerWithUsPage validateClickOnCancelSuccessPrompt() {
+		cancelSuccessPrompt.click();
+		return new PartnerWithUsPage();
+	}
 	
 	
 	
 	public HomePage createNewSponsor(String fN, String lN, String email, String mobileNo)
 	{	
-		firstName.sendKeys(fN);
-		lastName.sendKeys(lN); 
+		firstNameField.sendKeys(fN);
+		lastNameField.sendKeys(lN); 
 		emailAddress.sendKeys(email);
-		phoneNo.sendKeys(mobileNo);
+		phoneNoField.sendKeys(mobileNo);
 	
 		proceedButton.click();
 		return new HomePage();
@@ -666,22 +787,21 @@ public class PartnerWithUsPage extends TestBase {
 	
 	
 
-	public ContactUsPage validateClickOnContactUsOfficeAddress() throws Exception
+	public PartnerWithUsPage validateClickOnContactUsOfficeAddress() throws Exception
 	{
+		Thread.sleep(3000);
 		JavascriptExecutor scroll = (JavascriptExecutor) driver;
-		scroll.executeScript("window.scrollBy(0, 1100);");
-		Thread.sleep(5000);
-		getDirection.click();
-		Thread.sleep(5000);
-
-		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tabs2.get(0));
-		Thread.sleep(5000);
-
+		scroll.executeScript("arguments[0].scrollIntoView(true)", contactAddress);
 		
-		contactAddress.click();
-		return new ContactUsPage();
+		Thread.sleep(3000);
+		contactAddress.click();		
+		
+//		Thread.sleep(2000);
+//		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//		driver.switchTo().window(tabs2.get(1));
+		return new PartnerWithUsPage();
 	}
+	
 	
 	
 	public String validateCorrectGoogleMapContactUsOfficeAddress()
@@ -717,7 +837,7 @@ public class PartnerWithUsPage extends TestBase {
 	
 	
 
-	public ContactUsPage validateSignUpToMailingList(String userEmail) throws Exception
+	public PartnerWithUsPage validateSignUpToMailingList(String userEmail) throws Exception
 	{
 		JavascriptExecutor scroll = (JavascriptExecutor) driver;
 		scroll.executeScript("window.scrollBy(0, 4000);");
@@ -725,7 +845,7 @@ public class PartnerWithUsPage extends TestBase {
 		mailingListEmailField.sendKeys(userEmail);
 		Thread.sleep(4000);
 //		signUpMailingListButton.click();
-		return new ContactUsPage();
+		return new PartnerWithUsPage();
 	}
 	
 	
@@ -738,19 +858,18 @@ public class PartnerWithUsPage extends TestBase {
 	
 	
 	
-	
-	
-	public ContactUsPage validateSignUpToMailingListWithInvalidEmailFormat(String emailWithOutDotCom) throws Exception
-	{
-		Thread.sleep(3000);
-		JavascriptExecutor scroll = (JavascriptExecutor) driver;
-		scroll.executeScript("arguments[0].scrollIntoView(true)", signUpMailingListButton);
-		Thread.sleep(3000);
-		mailingListEmailField.sendKeys(emailWithOutDotCom);
-		Thread.sleep(4000);
-//		signUpMailingListButton.click();
-		return new ContactUsPage();
-	}
+//	
+//	public PartnerWithUsPage validateSignUpToMailingListWithInvalidEmailFormat(String emailWithOutDotCom) throws Exception
+//	{
+//		Thread.sleep(3000);
+//		JavascriptExecutor scroll = (JavascriptExecutor) driver;
+//		scroll.executeScript("arguments[0].scrollIntoView(true)", signUpMailingListButton);
+//		Thread.sleep(3000);
+//		mailingListEmailField.sendKeys(emailWithOutDotCom);
+//		Thread.sleep(4000);
+////		signUpMailingListButton.click();
+//		return new PartnerWithUsPage();
+//	}
 	
 	
 	
@@ -764,24 +883,20 @@ public class PartnerWithUsPage extends TestBase {
 	
 	
 	
-	public ContactUsPage validateClickOnGooglePlayLlink() throws InterruptedException
+	public PartnerWithUsPage validateClickOnGooglePlayLlink() throws InterruptedException
 	{
 		JavascriptExecutor scroll = (JavascriptExecutor) driver;
-		scroll.executeScript("window.scrollBy(0, 3300);");
-		Thread.sleep(4000);
-		googlePlayButton1.click();	
+		scroll.executeScript("arguments[0].scrollIntoView(true)", googlePlayButton2);
 		
 //		Switch back to the initial tab 
-		Thread.sleep(6000);
-		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-		driver.switchTo().window(tabs2.get(0));
+//		Thread.sleep(6000);
+//		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+//		driver.switchTo().window(tabs2.get(0));
 		
-//		Scroll down and click Google play
-		scroll.executeScript("arguments[0].scrollIntoView(true)", googlePlayButton2);
 		Thread.sleep(4000);
 		googlePlayButton2.click();	
 		
-		return new ContactUsPage();
+		return new PartnerWithUsPage();
 	}
 	
 	
@@ -797,7 +912,7 @@ public class PartnerWithUsPage extends TestBase {
 	
 	
 	
-	public ContactUsPage validateUserInstallBeamsityApp() throws Exception
+	public PartnerWithUsPage validateUserInstallBeamsityApp() throws Exception
 	{
 		Thread.sleep(4000);
 		JavascriptExecutor scroll = (JavascriptExecutor) driver;
@@ -814,8 +929,10 @@ public class PartnerWithUsPage extends TestBase {
 		
 //		Thread.sleep(4000);
 //		selectInstallationPhone.click();
-		return new ContactUsPage();
+		return new PartnerWithUsPage();
 	}
+
+	
 	
 	
 	

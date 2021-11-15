@@ -1,5 +1,7 @@
 package com.fbistech.testcases;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -21,6 +23,7 @@ public class SponsorPageTest extends TestBase{
 	{
 		super();
 	}
+	
 	
 	
 	@BeforeMethod
@@ -90,6 +93,7 @@ public class SponsorPageTest extends TestBase{
 //	
 	 
 	 
+	
 	@AfterMethod
 	public void tearDown() throws Exception
 	{

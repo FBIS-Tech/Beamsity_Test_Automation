@@ -2,6 +2,8 @@ package com.fbistech.testcases;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.fbistech.base.TestBase;
@@ -10,8 +12,6 @@ import com.fbistech.pages.LoginPage;
 import com.fbistech.pages.Schools_OrganizationsPage;
 import com.fbistech.pages.SignupPage;
 import com.fbistech.util.JiraPolicy;
-
-import junit.framework.Assert;
 
 public class SignupPageTest extends TestBase {
 	HomePage homePage;
@@ -24,7 +24,10 @@ public class SignupPageTest extends TestBase {
 	{
 		super();
 	}
+
 	
+	
+
 	@BeforeMethod
 	public void setUp() 
 	{

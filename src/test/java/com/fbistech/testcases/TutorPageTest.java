@@ -2,6 +2,8 @@ package com.fbistech.testcases;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.fbistech.base.TestBase;
@@ -22,6 +24,7 @@ public class TutorPageTest extends TestBase {
 	{
 		super();
 	}
+	
 	
 	
 	@BeforeMethod
@@ -53,6 +56,7 @@ public class TutorPageTest extends TestBase {
 //				prop.getProperty("emailAddress"), prop.getProperty("phoneNo"), prop.getProperty("uploadCourseFile"));
 //		
 //	}
+	
 	
 	
 	

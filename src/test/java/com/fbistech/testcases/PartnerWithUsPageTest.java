@@ -3,6 +3,7 @@ package com.fbistech.testcases;
 import java.util.ArrayList;
 
 import org.testng.Assert;
+import org.testng.AssertJUnit;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -25,28 +26,20 @@ public class PartnerWithUsPageTest extends TestBase {
 	TechOnBeamsityPage techOnBeamsityPage;
 	ContactUsPage contactUsPage;
 	LoginPage loginPage;
-	PartnerWithUsPage partnerWithUsPage; 
+	PartnerWithUsPage partnerWithUsPage;
 	AboutUsPage aboutUsPage;
 	Privacy_PolicyPage privacy_PolicyPage;
-	
 
-	
-	
 //	The super keyword will help the constructor to call TestBase constructor the properties 
 //	TestBase constructor will initialize
-	public PartnerWithUsPageTest()
-	{
+	public PartnerWithUsPageTest() {
 		super();
 	}
-	
-	
-	
-	
+
 	@BeforeMethod
-	public void setUp()
-	{
-		initialization(); 
-		
+	public void setUp() {
+		initialization();
+
 		homePage = new HomePage();
 		schools_OrganizationsPage = new Schools_OrganizationsPage();
 		techOnBeamsityPage = new TechOnBeamsityPage();
@@ -55,14 +48,9 @@ public class PartnerWithUsPageTest extends TestBase {
 		partnerWithUsPage = new PartnerWithUsPage();
 		aboutUsPage = new AboutUsPage();
 		privacy_PolicyPage = new Privacy_PolicyPage();
-	
+
 	}
-	
-	
-	
-	
-	
-	
+
 //	@JiraPolicy(logTicketReady=true)
 //	@Test(priority = 1) 
 //	public void verifyUserCanClickSchools_OrganizationsPageLink() throws Exception
@@ -227,79 +215,392 @@ public class PartnerWithUsPageTest extends TestBase {
 //	
 //	
 //	
-	
-	
-	
-	@JiraPolicy(logTicketReady=true)
-	@Test(priority = 3) 
-	public void verifyUserCanFillTutorForm() throws Exception
-	{
-		Thread.sleep(3000);
-		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
-		Thread.sleep(3000);
-		partnerWithUsPage = partnerWithUsPage.validateCreateNewTutor(prop.getProperty("firstNm"), 
-				prop.getProperty("lastNm"), prop.getProperty("e_Mail"), prop.getProperty("mobileNo"));
-	}
-	
-	
-	
-	
-	
-	
 //	
 //	
-//	@JiraPolicy(logTicketReady = true)
-//	@Test(priority = 6)
-//	public void verifyOfficeAddressIsDisplayed() throws Exception
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 1) 
+//	public void verifyUserCanFillAndSubmitTutorFormToMakeEnquiry() throws Exception
 //	{
-//		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(4000);
+//		Thread.sleep(3000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
 //		
-//	
+//		Thread.sleep(3000);
+//		partnerWithUsPage = partnerWithUsPage.validateFillTutorForm(prop.getProperty("firstNm"), prop.getProperty("lastNm"), prop.getProperty("e_Mail"), prop.getProperty("mobileNo"));
+//		
+//		Thread.sleep(7000);
+//		partnerWithUsPage = partnerWithUsPage.validateClickOnCancelSuccessPrompt();
+//
+//		
 //		String url = driver.getCurrentUrl();
-//		System.out.println(url);
 //		Assert.assertEquals(url, "https://beamsity.com/sponsor");
+//		System.out.println(url);
+//
 //		
 ////		<--- Validating partner with us text is display and running 2 layers of assertion ---->
-//		
-//		String pageNamelabel = contactUsPage.validateCorrectPartnerWithUsPageName();
-//		System.out.println(pageNamelabel);
-//		Assert.assertEquals(pageNamelabel, "Partner with us today", "Text displayed does not matched");
+////		
+//		String pageNameLabel = partnerWithUsPage.validateCorrectPartnerWithUsPageName();
+//		Assert.assertEquals(pageNameLabel, "Partner with us today", "Text displayed does not matched");
+//		System.out.println(pageNameLabel);
+//
 //		
 //		boolean text = driver.getPageSource().contains("Partner with us today");
-//		System.out.println(text);
 //		Assert.assertTrue(text);
+//		System.out.println(text);
+//		
+////		 <--- Validating user can successfully login and running an assertion ---->
+//		
+//		String successPrompt = partnerWithUsPage.validateEnquirySentSuccessPrompt();
+//		Assert.assertEquals(successPrompt, "Success.", "Text displayed does not matched");
+//		System.out.println(successPrompt);
+//		
+//		
+//		String getTextSuccessPrompt = partnerWithUsPage.validateEnquirySentSuccessfullyTextPrompt();
+//		Assert.assertEquals(getTextSuccessPrompt, "Enquiry sent successfully", "Text displayed does not matched");
+//		System.out.println(getTextSuccessPrompt);
+//			
+//		boolean successPrompt2 = driver.getPageSource().contains("Success.");
+//		Assert.assertTrue(successPrompt2);
+//		System.out.println(successPrompt2);
 //	}
 //	
 //	
 //	
-//
-//
-////	<----------------- ContactUsPage body ---------------->
 //	
 //	
-//	@JiraPolicy(logTicketReady = true)
-//	@Test(priority = 7)
-//	public void verifyUserIsOfficePhoneNumberisDisplayed() throws Exception
+//	
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 2) 
+//	public void verifyUserCannotSubmit_TutorEnquiryFormWithout_FirstNameToMakeEnquiry() throws Exception 
+//	{			
+//		Thread.sleep(3000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+//		
+//		Thread.sleep(3000);
+//		partnerWithUsPage = partnerWithUsPage.validateFillTutorForm(prop.getProperty("firstNmEmpty"), prop.getProperty("lastNm"), 
+//		prop.getProperty("e_Mail"), prop.getProperty("mobileNo"));
+//		
+//		Thread.sleep(8000);
+//		partnerWithUsPage = partnerWithUsPage.validateClickOnCancelFieldRequiredErrorPrompt();
+//		
+//		
+//		String url = driver.getCurrentUrl();
+//		Assert.assertEquals(url, "https://beamsity.com/sponsor");
+//		System.out.println(url);
+//
+//		
+////		<--- Validating partner with us text is display and running 2 layers of assertion ---->
+//		String pageNameLabel = partnerWithUsPage.validateCorrectPartnerWithUsPageName();
+//		Assert.assertEquals(pageNameLabel, "Partner with us today", "Text displayed does not matched");
+//		System.out.println(pageNameLabel);		
+//		
+//		
+//		String getErrorPromptText = partnerWithUsPage.validateFirstNameFieldIsRequiredErrorPrompt();
+//		Assert.assertEquals(getErrorPromptText, "The first name field is required.", "Text displayed does not matched");
+//		System.out.println(getErrorPromptText);
+//			
+//		boolean successPrompt2 = driver.getPageSource().contains("The first name field is required.");
+//		Assert.assertTrue(successPrompt2);
+//		System.out.println(successPrompt2);
+//	}
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 3) 
+//	public void verifyUserCannotSubmit_TutorEnquiryFormWithout_EmailToMakeEnquiry() throws Exception 
 //	{
-//		Thread.sleep(4000); 
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(3000); 
+//		Thread.sleep(3000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
 //		
-////		<--- Validating office phone number is displayed and and running a layer of assertion ----> 
-//		String phoneNumberLabel = contactUsPage.validateCorrectContactOfficePhoneNumber();
-//		Assert.assertEquals(phoneNumberLabel, "+234(0)8032036876");
-//		System.out.println(phoneNumberLabel);
+//		Thread.sleep(3000);
+//		partnerWithUsPage = partnerWithUsPage.validateFillTutorForm(prop.getProperty("firstNm"), prop.getProperty("lastNm"), 
+//		prop.getProperty("e_MailEmpty"), prop.getProperty("mobileNo"));
+//		
+//		Thread.sleep(8000);
+//		partnerWithUsPage = partnerWithUsPage.validateClickOnCancelFieldRequiredErrorPrompt();
+//		
+//		
+//		String url = driver.getCurrentUrl();
+//		Assert.assertEquals(url, "https://beamsity.com/sponsor");
+//		System.out.println(url);
 //
 //		
-////		<--- Validating office address text is display on the footer and running a layer of assertion ---->
-//		boolean text = driver.getPageSource().contains("+234(0)8032036876");
-//		Assert.assertTrue(text);
-//		System.out.println(text);
+////		<--- Validating partner with us text is display and running 2 layers of assertion ---->
+//		String pageNameLabel = partnerWithUsPage.validateCorrectPartnerWithUsPageName();
+//		Assert.assertEquals(pageNameLabel, "Partner with us today", "Text displayed does not matched");
+//		System.out.println(pageNameLabel);		
+//		
+//		
+//		String getErrorPromptText = partnerWithUsPage.validateEmailFieldIsRequiredErrorPrompt();
+//		Assert.assertEquals(getErrorPromptText, "The email field is required.", "Text displayed does not matched");
+//		System.out.println(getErrorPromptText);
+//			
+//		boolean successPrompt2 = driver.getPageSource().contains("The email field is required.");
+//		Assert.assertTrue(successPrompt2);
+//		System.out.println(successPrompt2);
 //	}
 //	
 //	
+//	
+//	
+//	
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 4) 
+//	public void verifyUserCanFillAndSubmit_SchoolOrganisationFormToEnquiry() throws Exception
+//	{
+//		Thread.sleep(3000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+//		Thread.sleep(3000);
+//		partnerWithUsPage = partnerWithUsPage.validateFillSchool_OrganizationForm(prop.getProperty("school_OrganisationNm")
+//				,prop.getProperty("firstNm"), prop.getProperty("lastNm"), prop.getProperty("e_Mail"), prop.getProperty("mobileNo"));
+//		
+//		Thread.sleep(7000);
+//		partnerWithUsPage = partnerWithUsPage.validateClickOnCancelSuccessPrompt();
+//
+//		
+//		String url = driver.getCurrentUrl();
+//		Assert.assertEquals(url, "https://beamsity.com/sponsor");
+//		System.out.println(url);
+//
+//		
+////		<--- Validating partner with us text is display and running 2 layers of assertion ---->
+////		
+//		String pageNameLabel = partnerWithUsPage.validateCorrectPartnerWithUsPageName();
+//		Assert.assertEquals(pageNameLabel, "Partner with us today", "Text displayed does not matched");
+//		System.out.println(pageNameLabel);
+//		
+////		 <--- Validating user can successfully login and running an assertion ---->
+//		
+//		String successPrompt = partnerWithUsPage.validateEnquirySentSuccessPrompt();
+//		Assert.assertEquals(successPrompt, "Success.", "Text displayed does not matched");
+//		System.out.println(successPrompt);
+//		
+//		boolean successPrompt2 = driver.getPageSource().contains("Success.");
+//		Assert.assertTrue(successPrompt2);
+//		System.out.println(successPrompt2);
+//		
+//		String enquirySuccessTextPrompt = partnerWithUsPage.validateEnquirySentSuccessfullyTextPrompt();
+//		Assert.assertEquals(enquirySuccessTextPrompt, "Enquiry sent successfully", "Text displayed does not matched");
+//		System.out.println(enquirySuccessTextPrompt);
+//	}
+//	
+//	
+//	
+//	
+//	
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 5) 
+//	public void verifyUserCannotSubmit_SchoolOrganisationEnqireFormWithout_FirstNameToEnquiry() throws Exception 
+//	{
+//		Thread.sleep(3000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+//		
+//		Thread.sleep(3000);
+//		partnerWithUsPage = partnerWithUsPage.validateFillSchool_OrganizationForm(prop.getProperty("school_OrganisationNm"), 
+//				prop.getProperty("firstNmEmpty"), prop.getProperty("lastNm"), prop.getProperty("e_Mail"), prop.getProperty("mobileNo"));
+//		
+//		Thread.sleep(7000);
+//		partnerWithUsPage = partnerWithUsPage.validateClickOnCancelFieldRequiredErrorPrompt();
+//		
+//		
+//		String url = driver.getCurrentUrl();
+//		Assert.assertEquals(url, "https://beamsity.com/sponsor");
+//		System.out.println(url);
+//
+//		
+////		<--- Validating partner with us text is display and running 2 layers of assertion ---->
+//		String pageNameLabel = partnerWithUsPage.validateCorrectPartnerWithUsPageName();
+//		Assert.assertEquals(pageNameLabel, "Partner with us today", "Text displayed does not matched");
+//		System.out.println(pageNameLabel);		
+//		
+//		
+//		String getErrorPromptText = partnerWithUsPage.validateFirstNameFieldIsRequiredErrorPrompt();
+//		Assert.assertEquals(getErrorPromptText, "The first name field is required.", "Text displayed does not matched");
+//		System.out.println(getErrorPromptText);
+//			
+//		boolean successPrompt2 = driver.getPageSource().contains("The first name field is required.");
+//		Assert.assertTrue(successPrompt2);
+//		System.out.println(successPrompt2);
+//	}
+//	
+//	
+//	
+//	
+//	
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 6) 
+//	public void verifyUserCannotSubmit_SchoolOrganisationEnqireFormWithout_EmailToEnquiry() throws Exception 
+//	{
+//		Thread.sleep(3000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+//		
+//		Thread.sleep(3000);
+//		partnerWithUsPage = partnerWithUsPage.validateFillSchool_OrganizationForm(prop.getProperty("school_OrganisationNm"), 
+//				prop.getProperty("firstNm"), prop.getProperty("lastNm"), prop.getProperty("e_MailEmpty"), prop.getProperty("mobileNo"));
+//		
+//		Thread.sleep(7000);
+//		partnerWithUsPage = partnerWithUsPage.validateClickOnCancelFieldRequiredErrorPrompt();
+//		
+//		
+//		String url = driver.getCurrentUrl();
+//		Assert.assertEquals(url, "https://beamsity.com/sponsor");
+//		System.out.println(url);
+//
+//		
+////		<--- Validating partner with us text is display and running 2 layers of assertion ---->
+//		String pageNameLabel = partnerWithUsPage.validateCorrectPartnerWithUsPageName();
+//		Assert.assertEquals(pageNameLabel, "Partner with us today", "Text displayed does not matched");
+//		System.out.println(pageNameLabel);		
+//		
+//		
+//		String getErrorPromptText = partnerWithUsPage.validateEmailFieldIsRequiredErrorPrompt();
+//		Assert.assertEquals(getErrorPromptText, "The email field is required.", "Text displayed does not matched");
+//		System.out.println(getErrorPromptText);
+//			
+//		boolean successPrompt2 = driver.getPageSource().contains("The email field is required.");
+//		Assert.assertTrue(successPrompt2);
+//		System.out.println(successPrompt2);
+//	}
+//	
+//	
+//	
+//	
+//	
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 7) 
+//	public void verifyUserCanFillAndSubmit_SponsorFormToEnquiry() throws Exception
+//	{
+//		Thread.sleep(3000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+//		
+//		Thread.sleep(3000);
+//		partnerWithUsPage = partnerWithUsPage.validateFillSponsorForm(prop.getProperty("firstNm"), prop.getProperty("lastNm"), 
+//				prop.getProperty("e_Mail"), prop.getProperty("mobileNo"));
+//		
+//		Thread.sleep(7000);
+//		partnerWithUsPage = partnerWithUsPage.validateClickOnCancelSuccessPrompt();
+//
+//		
+//		String url = driver.getCurrentUrl();
+//		Assert.assertEquals(url, "https://beamsity.com/sponsor");
+//		System.out.println(url);
+//
+//		
+////		<--- Validating partner with us text is display and running 2 layers of assertion ---->
+////		
+//		String pageNameLabel = partnerWithUsPage.validateCorrectPartnerWithUsPageName();
+//		Assert.assertEquals(pageNameLabel, "Partner with us today", "Text displayed does not matched");
+//		System.out.println(pageNameLabel);
+//	
+//		String successPrompt = partnerWithUsPage.validateEnquirySentSuccessPrompt();
+//		Assert.assertEquals(successPrompt, "Success.", "Text displayed does not matched");
+//		System.out.println(successPrompt);
+//		
+//		boolean successPrompt2 = driver.getPageSource().contains("Success.");
+//		Assert.assertTrue(successPrompt2);
+//		System.out.println(successPrompt2);
+//		
+//		String successPromptText = partnerWithUsPage.validateEnquirySentSuccessfullyTextPrompt();
+//		Assert.assertEquals(successPromptText, "Enquiry sent successfully", "Text displayed does not matched");
+//		System.out.println(successPromptText);
+//	}
+//	
+//	
+//	
+//	
+//	
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 8) 
+//	public void verifyUserCannotSubmit_SponsorEnquiryFormWithout_FirstNameToMakeEnquiry() throws Exception 
+//	{
+//		Thread.sleep(3000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+//		
+//		Thread.sleep(3000);
+//		partnerWithUsPage = partnerWithUsPage.validateFillSponsorForm(prop.getProperty("firstNmEmpty"), prop.getProperty("lastNm"), 
+//				prop.getProperty("e_Mail"), prop.getProperty("mobileNo"));
+//		
+//		Thread.sleep(8000);
+//		partnerWithUsPage = partnerWithUsPage.validateClickOnCancelFieldRequiredErrorPrompt();
+//		
+//		
+//		String url = driver.getCurrentUrl();
+//		Assert.assertEquals(url, "https://beamsity.com/sponsor");
+//		System.out.println(url);
+//
+//		
+////		<--- Validating partner with us text is display and running 2 layers of assertion ---->
+//		String pageNameLabel = partnerWithUsPage.validateCorrectPartnerWithUsPageName();
+//		Assert.assertEquals(pageNameLabel, "Partner with us today", "Text displayed does not matched");
+//		System.out.println(pageNameLabel);		
+//		
+//		
+//		String getErrorPromptText = partnerWithUsPage.validateFirstNameFieldIsRequiredErrorPrompt();
+//		Assert.assertEquals(getErrorPromptText, "The first name field is required.", "Text displayed does not matched");
+//		System.out.println(getErrorPromptText);
+//			
+//		boolean successPrompt2 = driver.getPageSource().contains("The first name field is required.");
+//		Assert.assertTrue(successPrompt2);
+//		System.out.println(successPrompt2);
+//	}
+//	
+//	
+//	
+//	
+//	
+//	
+//	
+//	@JiraPolicy(logTicketReady=true)
+//	@Test(priority = 9) 
+//	public void verifyUserCannotSubmit_SponsorEnquiryFormWithout_EmailToMakeEnquiry() throws Exception 
+//	{
+//		Thread.sleep(3000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+//		
+//		Thread.sleep(3000);
+//		partnerWithUsPage = partnerWithUsPage.validateFillSchool_OrganizationForm(prop.getProperty("school_OrganisationNm"), 
+//				prop.getProperty("firstNm"), prop.getProperty("lastNm"), prop.getProperty("e_MailEmpty"), prop.getProperty("mobileNo"));	
+//		
+//		Thread.sleep(8000);
+//		partnerWithUsPage = partnerWithUsPage.validateClickOnCancelFieldRequiredErrorPrompt();
+//		
+//		
+//		String url = driver.getCurrentUrl();
+//		Assert.assertEquals(url, "https://beamsity.com/sponsor");
+//		System.out.println(url);
+//
+//		
+////		<--- Validating partner with us text is display and running 2 layers of assertion ---->
+//		String pageNameLabel = partnerWithUsPage.validateCorrectPartnerWithUsPageName();
+//		Assert.assertEquals(pageNameLabel, "Partner with us today", "Text displayed does not matched");
+//		System.out.println(pageNameLabel);		
+//		
+//		
+//		String getErrorPromptText = partnerWithUsPage.validateEmailFieldIsRequiredErrorPrompt();
+//		Assert.assertEquals(getErrorPromptText, "The email field is required.", "Text displayed does not matched");
+//		System.out.println(getErrorPromptText);
+//			
+//		boolean errorPromptText = driver.getPageSource().contains("The email field is required.");
+//		Assert.assertTrue(errorPromptText);
+//		System.out.println(errorPromptText);
+//	}
+
+//	
+//	
+//	
+//
+
 //	
 //	
 //	
@@ -309,10 +610,12 @@ public class PartnerWithUsPageTest extends TestBase {
 //	@Test(priority = 8)
 //	public void verifyUserCanClickOnAboutUsLink() throws Exception
 //	{
-//		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
+//		Thread.sleep(2000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+//		
+//		
 //		Thread.sleep(3000);
-//		aboutUsPage = contactUsPage.validateClickOnAboutUsLink();
+//		partnerWithUsPage = partnerWithUsPage.validateClickOnAboutUsLink();
 //		
 //		
 //		String url = driver.getCurrentUrl();
@@ -321,30 +624,24 @@ public class PartnerWithUsPageTest extends TestBase {
 //		
 ////		<--- Validating Make an Impact context is display and running two layers of assertion ---->	
 //		
-//		String pageNamelabel = contactUsPage.validateCorrectAboutUsFooterName();
-//		System.out.println(pageNamelabel);
-//		Assert.assertEquals(pageNamelabel, "About Us", "Text displayed does not matched");
+//		String pageNameLabel = contactUsPage.validateCorrectAboutUsFooterName();
+//		System.out.println(pageNameLabel);
+//		Assert.assertEquals(pageNameLabel, "About Us", "Text displayed does not matched");
 //		
 //		boolean text = driver.getPageSource().contains("About Us");
 //		System.out.println(text);
 //		Assert.assertTrue(text);	
 //	}
-//	
-//
-//
-//	
-//	
-//	
-//	
-//	
+
 //	@JiraPolicy(logTicketReady = true)
 //	@Test(priority = 9)
 //	public void verifyUserCanClickOnPrivacyPolicyLink() throws Exception
 //	{
-//		Thread.sleep(4000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
+//		Thread.sleep(2000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+//		
 //		Thread.sleep(3000);
-//		privacy_PolicyPage = contactUsPage.validateClickOnPrivacyPolicyLink();
+//		partnerWithUsPage = partnerWithUsPage.validateClickOnPrivacyPolicyLink();
 //		
 //		
 //		String url = driver.getCurrentUrl();
@@ -366,36 +663,37 @@ public class PartnerWithUsPageTest extends TestBase {
 //	
 //	
 //	
-//	
-//	
-//	
+
 //	@JiraPolicy(logTicketReady = true)
 //	@Test(priority = 10)
 //	public void verifyUserIsRedirectedToGoogleMapNavigation_ClickOnContactAddressLink() throws Exception
 //	{
 //		Thread.sleep(4000); 
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+//		
 //		Thread.sleep(4000); 
-//		contactUsPage = contactUsPage.validateClickOnContactUsOfficeAddress();
+//		partnerWithUsPage = partnerWithUsPage.validateClickOnContactUsOfficeAddress();
 //		
 //		
-////		<--- Validating office address text is display on the footer and running a layer of assertion ---->
-//		boolean text = driver.getPageSource().contains("50, Awolowo Road Ikoyi lagos, Nigeria.");
-//		Assert.assertTrue(text);
-//		System.out.println(text);
 //
 //		
 ////		<---  Create Array List to keep Tab information ---->
 //		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-//
 ////		Navigate to google map tab
-//		driver.switchTo().window(tabs2.get(2));
+//		driver.switchTo().window(tabs2.get(1));
 //	
 //		
 ////		<--- Validating office address text is display on google map and running a layer of assertion ---->
-//		String footerNamelabel = contactUsPage.validateCorrectGoogleMapContactUsOfficeAddress();
-//		System.out.println(footerNamelabel);
+//		String footerNamelabel = partnerWithUsPage.validateCorrectGoogleMapContactUsOfficeAddress();
 //		Assert.assertEquals(footerNamelabel, "50 Awolowo Rd, Ikoyi 106104, Lagos", " The address displayed does not matched");
+//		System.out.println(footerNamelabel);
+//
+//		
+////		<--- Validating office address text is display on the footer and running a layer of assertion ---->
+//		boolean text = driver.getPageSource().contains("50 Awolowo Rd, Ikoyi 106104, Lagos");
+//		Assert.assertTrue(text);
+//		System.out.println(text);
+//
 //	}
 //	
 //	
@@ -408,14 +706,14 @@ public class PartnerWithUsPageTest extends TestBase {
 //	@Test(priority = 11)
 //	public void verifyUserCanSignUpToMailingList() throws Exception
 //	{
+//		Thread.sleep(4000); 
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
 //		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateSignUpToMailingList(prop.getProperty("userEmail"));
+//		partnerWithUsPage = partnerWithUsPage.validateSignUpToMailingList(prop.getProperty("userEmail"));
 //		
 ////		<--- Validating SignUp To Mailing List success and running two layers of assertion ---->
 //		Thread.sleep(3000);
-//		String successPrompt = contactUsPage.validateSignUpToMailingListSuccessPrompt();
+//		String successPrompt = partnerWithUsPage.validateSignUpToMailingListSuccessPrompt();
 //		Assert.assertEquals(successPrompt, "Success.", "Text displayed does not matched");
 //		System.out.println(successPrompt);
 //			 
@@ -435,17 +733,17 @@ public class PartnerWithUsPageTest extends TestBase {
 //	 
 //	@JiraPolicy(logTicketReady = true)
 //	@Test(priority = 12)
-//	public void verifyUserCannotSignUpToMailingListWithEmail_WithOutDotCom() throws Exception
+//	public void verifyUserCannotSignUpToMailingListWithEmail_WithoutDomeNameExtension() throws Exception
 //	{
-//		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("emailWithOutDotCom"));
+//		Thread.sleep(4000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+//		Thread.sleep(4000);
+//		partnerWithUsPage = partnerWithUsPage.validateSignUpToMailingList(prop.getProperty("emailWithoutDomeNameExtension"));
 //		Thread.sleep(2000);
 //	
 ////		<--- Validating SignUp To Mailing List success and running two layers of assertion ---->
 //		
-//		String invalidEmailErrorPrompt = contactUsPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
+//		String invalidEmailErrorPrompt = partnerWithUsPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
 //		Assert.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
 //		System.out.println(invalidEmailErrorPrompt);
 //
@@ -464,17 +762,17 @@ public class PartnerWithUsPageTest extends TestBase {
 //	
 //	@JiraPolicy(logTicketReady = true)
 //	@Test(priority = 13)
-//	public void verifyUserCannotSignUpToMailingListWithEmail_WithoutATgmail() throws Exception
+//	public void verifyUserCannotSignUpToMailingListWithEmail_WithoutServerHostName() throws Exception
 //	{
-//		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("emailWithOut@gmail"));
+//		Thread.sleep(4000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+//		Thread.sleep(4000);
+//		partnerWithUsPage = partnerWithUsPage.validateSignUpToMailingList(prop.getProperty("emailWithoutServerHostName"));
 //		Thread.sleep(2000);
-//	
+//		
 ////		<--- Validating SignUp To Mailing List invalid email error prompt and running two layers of assertion ---->
 //		
-//		String invalidEmailErrorPrompt = contactUsPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
+//		String invalidEmailErrorPrompt = partnerWithUsPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
 //		Assert.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
 //		System.out.println(invalidEmailErrorPrompt);
 //			 
@@ -494,14 +792,15 @@ public class PartnerWithUsPageTest extends TestBase {
 //	@Test(priority = 14)
 //	public void verifyUserCannotSignUpToMailingListWith_PhoneNumber() throws Exception
 //	{
-//		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("signUpWithPhoneNo"));
+//		Thread.sleep(4000);
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+//		Thread.sleep(4000);
+//		partnerWithUsPage = partnerWithUsPage.validateSignUpToMailingList(prop.getProperty("signUpWithPhoneNo"));
+//		Thread.sleep(2000);
 //	
 ////	<--- Validating SignUp To Mailing List invalid email error prompt and running two layers of assertion ---->
 //		
-//		String invalidEmailErrorPrompt = contactUsPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
+//		String invalidEmailErrorPrompt = partnerWithUsPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
 //		System.out.println(invalidEmailErrorPrompt);
 //		Assert.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
 //			 
@@ -522,14 +821,14 @@ public class PartnerWithUsPageTest extends TestBase {
 //	public void verify_SUCCESS_IsPromptedWhenUserSuccessfullySignUpToMailingListWithValidEmail() throws Exception
 //	{
 //		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
 //		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("userEmail"));
+//		partnerWithUsPage = partnerWithUsPage.validateSignUpToMailingList(prop.getProperty("userEmail"));
 //		Thread.sleep(2000);
 //	
 ////		<--- Validating SignUp To Mailing List Success prompt and running two layers of assertion ---->
 //		
-//		String signUpMailingListSuccessPrompt = contactUsPage.validateSignUpToMailingListSuccessPrompt();
+//		String signUpMailingListSuccessPrompt = partnerWithUsPage.validateSignUpToMailingListSuccessPrompt();
 //		Assert.assertEquals(signUpMailingListSuccessPrompt, "Success.", "Text displayed does not matched");
 //		System.out.println(signUpMailingListSuccessPrompt);
 //		
@@ -550,14 +849,14 @@ public class PartnerWithUsPageTest extends TestBase {
 //	public void verify_InvalidEmailAddress_IsPromptedWhenUserAttemptedToSignUpToMailingListWithInvalidEmail() throws Exception
 //	{
 //		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
+//		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
 //		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateSignUpToMailingListWithInvalidEmailFormat(prop.getProperty("emailWithOut@gmail"));
+//		partnerWithUsPage = partnerWithUsPage.validateSignUpToMailingList(prop.getProperty("emailWithOut@gmail"));
 //		Thread.sleep(2000);
 //	
 ////		<--- Validating SignUp To Mailing List invalid email error prompt and running two layers of assertion ---->
 //		
-//		String invalidEmailErrorPrompt = contactUsPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
+//		String invalidEmailErrorPrompt = partnerWithUsPage.validateSignUpToMailingListInvalidEmailErrorPrompt();
 //		Assert.assertEquals(invalidEmailErrorPrompt, "The email must be a valid email address.", "Text displayed does not matched");
 //		System.out.println(invalidEmailErrorPrompt);
 //
@@ -574,76 +873,76 @@ public class PartnerWithUsPageTest extends TestBase {
 //	
 //	
 //	
-//	@JiraPolicy(logTicketReady = true)
-//	@Test(priority = 17)
-//	public void verifyUserCanClickOnGooglePlayLink() throws Exception
-//	{
-//		Thread.sleep(4000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(3000);
-//		contactUsPage = contactUsPage.validateClickOnGooglePlayLlink();
-//		
-////	<---  Create Array List to keep Tab information ---->
-//		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-//
-////	<----  Navigate to New Tab ---->
-//		driver.switchTo().window(tabs2.get(1));
-//		
-//		
-////		<--- Validating Google play button and running three layers of assertion ---->
-//		String url = driver.getCurrentUrl();
-//		System.out.println(url);
-//		Assert.assertEquals(url, "https://play.google.com/store/apps/details?id=com.fbistech.beamsity", "URL does not matched");
-//		
-//		
-//		
-//		String pageNamelabel = contactUsPage.validateCorrectGooglePlayPageName();
-//		System.out.println(pageNamelabel);
-//		Assert.assertEquals(pageNamelabel, "BeamSity", " Text displayed does not matched");
-//		
-//		boolean text = driver.getPageSource().contains("BeamSity");
-//		System.out.println(text);
-//		Assert.assertTrue(text);	
-//	}
-//	
-//	
-//	
-//	
-//	
-//	
-//	
-//	@JiraPolicy(logTicketReady = true)
-//	@Test(priority = 18)
-//	public void verifyUserCanInstallBeamsityApp() throws Exception
-//	{
-//		Thread.sleep(5000);
-//		contactUsPage = homePage.validateClickOnContactUsLinkOnNavBar();
-//		Thread.sleep(5000);
-//		contactUsPage = contactUsPage.validateUserInstallBeamsityApp();
-//		
-////		<---  Create Array List to keep Tab information ---->
-//		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-//
-////		<----  Navigate to New Tab ---->
-//		driver.switchTo().window(tabs2.get(1));
-//				
-////		<---- Validating Google play button and running three layers of assertion ---->
-//		String url = driver.getCurrentUrl();
-//		Assert.assertEquals(url, "https://play.google.com/store/apps/details?id=com.fbistech.beamsity", "The URL does not matched");
-//		System.out.println(url);
-//
-//		
-//		String footerNameLabel = contactUsPage.validateCorrectGooglePlayPageName();
-//		Assert.assertEquals(footerNameLabel, "BeamSity", "Text displayed does not matched");
-//		System.out.println(footerNameLabel);
-// 
-//			
-//		boolean pageNamelText = driver.getPageSource().contains("BeamSity");
-//	//	Assert.assertEquals(pageNamelText, true);
-//		Assert.assertTrue(pageNamelText);	
-//		System.out.println(pageNamelText);
-//	}
-//	
+	@JiraPolicy(logTicketReady = true)
+	@Test(priority = 17)
+	public void verifyUserCanClickOnGooglePlayLink() throws Exception {
+		
+		Thread.sleep(4000);
+		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+		
+		Thread.sleep(3000);
+		partnerWithUsPage = partnerWithUsPage.validateClickOnGooglePlayLlink();
+
+//	<---  Create Array List to keep Tab information ---->
+		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+
+//	<----  Navigate to New Tab ---->
+		driver.switchTo().window(tabs2.get(1));
+
+//		<--- Validating Google play button and running three layers of assertion ---->
+		String url = driver.getCurrentUrl();
+		System.out.println(url);
+		AssertJUnit.assertEquals(url, "https://play.google.com/store/apps/details?id=com.fbistech.beamsity",
+				"URL does not matched");
+
+		String pageNamelabel = partnerWithUsPage.validateCorrectGooglePlayPageName();
+		Assert.assertEquals(pageNamelabel, "BeamSity", " Text displayed does not matched");
+		System.out.println(pageNamelabel);
+
+		boolean text = driver.getPageSource().contains("BeamSity");
+		Assert.assertTrue(text);
+		System.out.println(text);
+
+	}
+	
+
+	
+	
+	
+	
+	
+	@JiraPolicy(logTicketReady = true)
+	@Test(priority = 18)
+	public void verifyUserCanInstallBeamsityApp() throws Exception
+	{
+		Thread.sleep(5000);
+		partnerWithUsPage = homePage.validateClickOnPartnerWithUsLink();
+		Thread.sleep(5000);
+		partnerWithUsPage = partnerWithUsPage.validateUserInstallBeamsityApp();
+		
+//		<---  Create Array List to keep Tab information ---->
+		ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+
+//		<----  Navigate to New Tab ---->
+		driver.switchTo().window(tabs2.get(1));
+				
+//		<---- Validating Google play button and running three layers of assertion ---->
+		String url = driver.getCurrentUrl();
+		Assert.assertEquals(url, "https://play.google.com/store/apps/details?id=com.fbistech.beamsity", "The URL does not matched");
+		System.out.println(url);
+
+		
+		String footerNameLabel = partnerWithUsPage.validateCorrectGooglePlayPageName();
+		Assert.assertEquals(footerNameLabel, "BeamSity", "Text displayed does not matched");
+		System.out.println(footerNameLabel);
+ 
+			
+		boolean pageNamelText = driver.getPageSource().contains("BeamSity");
+	//	Assert.assertEquals(pageNamelText, true);
+		Assert.assertTrue(pageNamelText);	
+		System.out.println(pageNamelText);
+	}
+	
 //	
 //	
 //	
@@ -688,18 +987,10 @@ public class PartnerWithUsPageTest extends TestBase {
 //	
 //
 //	
-	
-	
 
-	
-	
-	
-	
-	
 	@AfterMethod
-	public void tearDown() throws Exception
-	{
-		Thread.sleep(6000);
-//		driver.quit(); 
+	public void tearDown() throws Exception {
+		Thread.sleep(5000);
+		driver.quit();
 	}
 }
